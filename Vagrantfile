@@ -3,9 +3,9 @@
 
 update_channel = "stable"
 
-num_masters = 2
+num_masters = 1
 num_etcds = 3
-num_workers = 2
+num_workers = 0
 
 instance_master_prefix = "master"
 instance_worker_prefix = "worker"

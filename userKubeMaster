@@ -1,0 +1,5 @@
+{
+    "username": "kube",
+    "password": "kube",
+    "policies": "kube-master"
+}

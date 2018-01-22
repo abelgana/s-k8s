@@ -1,0 +1,8 @@
+{
+    "common_name": "kubernetes",
+    "format": "pem",
+    "ttl": "60h",
+    "exclude_cn_from_sans": "true",
+    "ip_sans": "127.0.0.1,172.17.8.51,172.17.8.52,10.233.0.1",
+    "alt_names": "kubernetes.default.svc.cluster.local', 'kubernetes.default.svc', 'kubernetes.default', 'kubernetes, localhost, master-01, master-02'"
+}

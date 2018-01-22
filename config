@@ -1,0 +1,4 @@
+# core@bastion ~/vagrant $ docker exec ansible cat root/.ssh/config
+Host *
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null

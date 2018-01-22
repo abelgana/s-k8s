@@ -1,0 +1,18 @@
+[Unit]
+Description=etcd docker wrapper
+Wants=docker.socket
+After=docker.service
+
+[Service]
+User=root
+PermissionsStartOnly=true
+EnvironmentFile=-/etc/etcd.env
+ExecStart=/opt/bin/etcd
+ExecStartPre=-/usr/bin/docker rm -f etcd-03
+ExecStop=/usr/bin/docker stop etcd-03
+Restart=always
+RestartSec=15s
+TimeoutStartSec=30s
+
+[Install]
+WantedBy=multi-user.target

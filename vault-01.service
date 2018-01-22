@@ -1,0 +1,30 @@
+[Unit]
+Description=hashicorp vault on docker
+Documentation=https://github.com/hashicorp/vault
+Wants=docker.socket
+After=docker.service
+
+[Service]
+User=root
+Restart=always
+RestartSec=15s
+TimeoutStartSec=5
+LimitNOFILE=10000
+ExecReload=/usr/bin/docker restart vault-01
+ExecStop=/usr/bin/docker stop vault-01
+ExecStartPre=-/usr/bin/docker rm -f vault-01
+ExecStart=/usr/bin/docker run \
+--name vault-01 --net=host \
+--cap-add=IPC_LOCK \
+-v /etc/vault/ssl:/etc/vault/ssl \
+-v /etc/vault/config:/etc/vault/config \
+-v /etc/ssl/etcd/ssl:/etc/ssl/etcd/ssl \
+-v /var/log/vault:/vault/logs \
+-v /etc/vault/roles:/etc/vault/roles \
+-v /etc/vault/secrets:/etc/vault/secrets \
+--entrypoint=vault \
+vault:0.9.0 \
+server --config=/etc/vault/config/config.json
+
+[Install]
+WantedBy=multi-user.target

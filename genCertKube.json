@@ -1,0 +1,6 @@
+{
+    "common_name": "kube",
+    "format": "pem",
+    "exclude_cn_from_sans": "true",
+    "ttl" : "600h"
+}

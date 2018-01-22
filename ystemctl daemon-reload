@@ -1,0 +1,473 @@
+-- Logs begin at Sat 2018-01-13 18:55:07 UTC, end at Sat 2018-01-13 22:16:01 UTC. --
+Jan 13 22:06:53 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:06:53 master-01 docker[4841]: Error response from daemon: No such container: kubelet
+Jan 13 22:06:53 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:06:53 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:06:53 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:06:53 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:03 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:03 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:03 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:03 master-01 docker[4856]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:03 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:03 master-01 systemd[4859]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:07:03 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:03 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:03 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:13 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:13 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:13 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:13 master-01 docker[4866]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:13 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:13 master-01 systemd[4869]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:07:13 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:13 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:13 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:24 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:24 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:24 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:24 master-01 docker[4873]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:24 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:24 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:24 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:24 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:34 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:34 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:34 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:34 master-01 docker[4879]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:34 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:34 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:34 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:34 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:44 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:44 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:44 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:44 master-01 docker[4894]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:44 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:44 master-01 systemd[4897]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:07:44 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:44 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:44 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:07:54 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:07:54 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:07:54 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:07:54 master-01 docker[4902]: Error response from daemon: No such container: kubelet
+Jan 13 22:07:54 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:07:54 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:07:54 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:07:54 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:05 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:05 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:05 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:05 master-01 docker[4909]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:05 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:05 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:05 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:05 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:15 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:15 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:15 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:15 master-01 docker[4915]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:15 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:15 master-01 systemd[4918]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:08:15 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:15 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:15 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:25 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:25 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:25 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:25 master-01 docker[4922]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:25 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:25 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:25 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:25 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:35 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:35 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:35 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:35 master-01 docker[4929]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:35 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:35 master-01 systemd[4932]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:08:35 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:35 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:35 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:46 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:46 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:46 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:46 master-01 docker[4936]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:46 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:46 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:46 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:46 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:08:56 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:08:56 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:08:56 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:08:56 master-01 docker[4945]: Error response from daemon: No such container: kubelet
+Jan 13 22:08:56 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:08:56 master-01 systemd[4948]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:08:56 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:08:56 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:08:56 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:06 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:09:06 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:06 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:06 master-01 docker[4954]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:06 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:06 master-01 systemd[4959]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:09:06 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:06 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:06 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:16 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:09:16 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:16 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:16 master-01 docker[4962]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:16 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:16 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:16 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:16 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:27 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:09:27 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:27 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:27 master-01 docker[4990]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:27 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:27 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:27 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:27 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:30 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:30 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:30 master-01 docker[4998]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:30 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:30 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:30 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:30 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:40 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:09:40 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:40 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:40 master-01 docker[5006]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:40 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:40 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:40 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:40 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:09:51 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:09:51 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:09:51 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:09:51 master-01 docker[5012]: Error response from daemon: No such container: kubelet
+Jan 13 22:09:51 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:09:51 master-01 systemd[5017]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:09:51 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:09:51 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:09:51 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:01 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:01 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:01 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:01 master-01 docker[5020]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:01 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:01 master-01 systemd[5023]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:10:01 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:01 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:01 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:11 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:11 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:11 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:11 master-01 docker[5030]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:11 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:11 master-01 systemd[5033]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:10:11 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:11 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:11 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:21 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:21 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:21 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:21 master-01 docker[5038]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:21 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:21 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:21 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:21 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:32 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:32 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:32 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:32 master-01 docker[5047]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:32 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:32 master-01 systemd[5050]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:10:32 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:32 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:32 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:42 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:42 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:42 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:42 master-01 docker[5055]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:42 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:42 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:42 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:42 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:10:52 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:10:52 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:10:52 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:10:52 master-01 docker[5061]: Error response from daemon: No such container: kubelet
+Jan 13 22:10:52 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:10:52 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:10:52 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:10:52 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:02 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:02 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:02 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:02 master-01 docker[5067]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:02 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:02 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:02 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:02 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:13 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:13 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:13 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:13 master-01 docker[5073]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:13 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:13 master-01 systemd[5076]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:11:13 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:13 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:13 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:23 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:23 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:23 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:23 master-01 docker[5080]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:23 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:23 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:23 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:23 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:33 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:33 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:33 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:33 master-01 docker[5086]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:33 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:33 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:33 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:33 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:43 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:43 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:43 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:43 master-01 docker[5092]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:43 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:43 master-01 systemd[5095]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:11:43 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:43 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:43 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:11:54 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:11:54 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:11:54 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:11:54 master-01 docker[5099]: Error response from daemon: No such container: kubelet
+Jan 13 22:11:54 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:11:54 master-01 systemd[5102]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:11:54 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:11:54 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:11:54 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:04 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:04 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:04 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:04 master-01 docker[5106]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:04 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:04 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:04 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:04 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:14 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:14 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:14 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:14 master-01 docker[5131]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:14 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:14 master-01 systemd[5134]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:12:14 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:14 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:14 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:24 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:24 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:24 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:24 master-01 docker[5138]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:24 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:24 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:24 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:24 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:35 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:35 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:35 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:35 master-01 docker[5146]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:35 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:35 master-01 systemd[5150]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:12:35 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:35 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:35 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:45 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:45 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:45 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:45 master-01 docker[5153]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:45 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:45 master-01 systemd[5156]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:12:45 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:45 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:45 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:12:55 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:12:55 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:12:55 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:12:55 master-01 docker[5160]: Error response from daemon: No such container: kubelet
+Jan 13 22:12:55 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:12:55 master-01 systemd[5163]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:12:55 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:12:55 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:12:55 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:05 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:05 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:05 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:05 master-01 docker[5168]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:05 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:05 master-01 systemd[5171]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:13:05 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:05 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:05 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:16 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:16 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:16 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:16 master-01 docker[5175]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:16 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:16 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:16 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:16 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:26 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:26 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:26 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:26 master-01 docker[5181]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:26 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:26 master-01 systemd[5185]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:13:26 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:26 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:26 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:36 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:36 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:36 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:36 master-01 docker[5188]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:36 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:36 master-01 systemd[5193]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:13:36 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:36 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:36 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:46 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:46 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:46 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:46 master-01 docker[5196]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:46 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:46 master-01 systemd[5199]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:13:46 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:46 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:46 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:13:57 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:13:57 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:13:57 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:13:57 master-01 docker[5203]: Error response from daemon: No such container: kubelet
+Jan 13 22:13:57 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:13:57 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:13:57 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:13:57 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:07 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:07 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:07 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:07 master-01 docker[5209]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:07 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:07 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:07 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:07 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:17 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:17 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:17 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:17 master-01 docker[5217]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:17 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:17 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:17 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:17 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:27 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:27 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:27 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:27 master-01 docker[5224]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:27 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:27 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:27 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:27 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:38 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:38 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:38 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:38 master-01 docker[5230]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:38 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:38 master-01 systemd[5233]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:14:38 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:38 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:38 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:48 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:48 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:48 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:48 master-01 docker[5237]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:48 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:48 master-01 systemd[5241]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:14:48 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:48 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:48 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:14:58 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:14:58 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:14:58 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:14:58 master-01 docker[5245]: Error response from daemon: No such container: kubelet
+Jan 13 22:14:58 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:14:58 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:14:58 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:14:58 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:08 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:15:08 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:08 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:08 master-01 docker[5252]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:08 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:08 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:08 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:08 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:19 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:15:19 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:19 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:19 master-01 docker[5281]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:19 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:19 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:19 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:19 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:29 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:15:29 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:29 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:29 master-01 docker[5287]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:29 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:29 master-01 systemd[5290]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:15:29 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:29 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:29 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:39 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:15:39 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:39 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:39 master-01 docker[5295]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:39 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:39 master-01 systemd[5298]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:15:39 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:39 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:39 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:40 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:40 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:40 master-01 docker[5304]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:40 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:40 master-01 systemd[5307]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:15:40 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:40 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:40 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:15:51 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:15:51 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:15:51 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:15:51 master-01 docker[5313]: Error response from daemon: No such container: kubelet
+Jan 13 22:15:51 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:15:51 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:15:51 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:15:51 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m
+Jan 13 22:16:01 master-01 systemd[1]: kubelet.service: Service hold-off time over, scheduling restart.
+Jan 13 22:16:01 master-01 systemd[1]: Stopped Kubernetes Kubelet Server.
+Jan 13 22:16:01 master-01 systemd[1]: Starting Kubernetes Kubelet Server...
+Jan 13 22:16:01 master-01 docker[5322]: Error response from daemon: No such container: kubelet
+Jan 13 22:16:01 master-01 systemd[1]: Started Kubernetes Kubelet Server.
+Jan 13 22:16:01 master-01 systemd[5325]: [0;1;31mkubelet.service: Failed at step EXEC spawning /usr/local/bin/kubelet: No such file or directory[0m
+Jan 13 22:16:01 master-01 systemd[1]: [0;1;39mkubelet.service: Main process exited, code=exited, status=203/EXEC[0m
+Jan 13 22:16:01 master-01 systemd[1]: [0;1;39mkubelet.service: Unit entered failed state.[0m
+Jan 13 22:16:01 master-01 systemd[1]: [0;1;39mkubelet.service: Failed with result 'exit-code'.[0m

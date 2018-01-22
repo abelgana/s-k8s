@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-apiserver
+  namespace: kube-system
+  labels:
+    k8s-app: kube-apiserver
+    kubespray: v2
+spec:
+  hostNetwork: true
+  dnsPolicy: ClusterFirst
+  containers:
+  - name: kube-apiserver
+    image: quay.io/coreos/hyperkube:v1.9.2_coreos.0
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        cpu: 800m
+        memory: 2000M
+      requests:
+        cpu: 100m
+        memory: 256M
+    command:
+    - /hyperkube
+    - apiserver
+    - --advertise-address=172.17.8.51
+    - --etcd-servers=https://172.17.8.101:2379
+    - --etcd-quorum-read=true
+    - --etcd-cafile=/etc/ssl/etcd/ssl/ca.pem
+    - --etcd-certfile=/etc/ssl/etcd/ssl/proxy-etcd-01.pem
+    - --etcd-keyfile=/etc/ssl/etcd/ssl/proxy-etcd-01-key.pem
+    - --insecure-bind-address=127.0.0.1
+    - --bind-address=0.0.0.0
+    - --apiserver-count=2
+    - --endpoint-reconciler-type=lease
+    - --admission-control=Initializers,NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota
+    - --service-cluster-ip-range=10.233.0.0/18
+    - --service-node-port-range=30000-32767
+    - --client-ca-file=/etc/kubernetes/ssl/ca.pem
+    - --profiling=false
+    - --repair-malformed-updates=false
+    - --kubelet-client-certificate=/etc/kubernetes/ssl/kube-node.pem
+    - --kubelet-client-key=/etc/kubernetes/ssl/kube-node-key.pem
+    - --service-account-lookup=true
+    - --basic-auth-file=/etc/kubernetes/users/known_users.csv
+    - --tls-cert-file=/etc/kubernetes/ssl/apiserver.pem
+    - --tls-private-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+    - --proxy-client-cert-file=/etc/kubernetes/ssl/apiserver.pem
+    - --proxy-client-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+    - --service-account-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+    - --secure-port=6443
+    - --insecure-port=8080
+    - --storage-backend=etcd3
+    - --runtime-config=admissionregistration.k8s.io/v1alpha1
+    - --v=2
+    - --allow-privileged=true
+    - --authorization-mode=Node,RBAC
+    livenessProbe:
+      httpGet:
+        host: 127.0.0.1
+        path: /healthz
+        port: 8080
+      initialDelaySeconds: 30
+      timeoutSeconds: 10
+    volumeMounts:
+    - mountPath: /etc/kubernetes
+      name: kubernetes-config
+      readOnly: true
+    - mountPath: /etc/ssl
+      name: ssl-certs-host
+      readOnly: true
+    - mountPath: /usr/share/ca-certificates
+      name: ca-certificates
+      readOnly: true
+    - mountPath: /etc/ssl/etcd/ssl/
+      name: etcd-certs
+      readOnly: true
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes
+    name: kubernetes-config
+  - name: ssl-certs-host
+    hostPath:
+      path: /etc/ssl
+  - hostPath:
+      path: /usr/share/ca-certificates
+    name: ca-certificates
+    readOnly: true
+  - hostPath:
+      path: /etc/ssl/etcd/ssl/
+    name: etcd-certs
+    readOnly: true

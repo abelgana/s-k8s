@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: calico-config
+  namespace: kube-system
+data:
+  etcd_endpoints: "https://172.17.8.101:2379"
+  etcd_ca: "/calico-secrets/ca_cert.crt"
+  etcd_cert: "/calico-secrets/cert.crt"
+  etcd_key: "/calico-secrets/key.pem"
+  calico_backend: "bird"

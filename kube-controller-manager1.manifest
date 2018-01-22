@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-controller-manager
+  namespace: kube-system
+  labels:
+    k8s-app: kube-controller-manager
+spec:
+  hostNetwork: true
+  dnsPolicy: ClusterFirst
+  containers:
+  - name: kube-controller-manager
+    image: quay.io/coreos/hyperkube:v1.9.2_coreos.0
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        cpu: 250m
+        memory: 512M
+      requests:
+        cpu: 100m
+        memory: 100M
+    command:
+    - /hyperkube
+    - controller-manager
+    - --kubeconfig=/etc/kubernetes/kube-controller-manager-kubeconfig.yaml
+    - --leader-elect=true
+    - --service-account-private-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+    - --root-ca-file=/etc/kubernetes/ssl/ca.pem
+    - --cluster-signing-cert-file=/etc/kubernetes/ssl/ca.pem
+    - --cluster-signing-key-file=/etc/kubernetes/ssl/ca-key.pem
+    - --enable-hostpath-provisioner=false
+    - --node-monitor-grace-period=40s
+    - --node-monitor-period=5s
+    - --pod-eviction-timeout=5m0s
+    - --profiling=false
+    - --terminated-pod-gc-threshold=12500
+    - --v=2
+    - --use-service-account-credentials=true
+    - --allocate-node-cidrs=true
+    - --cluster-cidr=10.233.64.0/18
+    - --service-cluster-ip-range=10.233.0.0/18
+    - --node-cidr-mask-size=24
+    livenessProbe:
+      httpGet:
+        host: 127.0.0.1
+        path: /healthz
+        port: 10252
+      initialDelaySeconds: 30
+      timeoutSeconds: 10
+    volumeMounts:
+    - mountPath: /etc/ssl
+      name: ssl-certs-host
+      readOnly: true
+    - mountPath: /usr/share/ca-certificates
+      name: ca-certificates
+      readOnly: true
+    - mountPath: /etc/kubernetes/ssl
+      name: etc-kube-ssl
+      readOnly: true
+    - mountPath: /etc/kubernetes/kube-controller-manager-kubeconfig.yaml
+      name: kubeconfig
+      readOnly: true
+  volumes:
+  - name: ssl-certs-host
+    hostPath:
+      path: /etc/ssl
+  - name: ca-certificates
+    hostPath:
+      path: /usr/share/ca-certificates
+  - name: etc-kube-ssl
+    hostPath:
+      path: /etc/kubernetes/ssl
+  - name: kubeconfig
+    hostPath:
+      path: /etc/kubernetes/kube-controller-manager-kubeconfig.yaml

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mkdir -p /opt/bin
+mkdir /etc/kubernetes
+mkdir /etc/kubernetes/manifests
+mkdir /etc/kubernetes/ssl
+mkdir /etc/kubernetes/tokens
+mkdir /etc/kubernetes/users
+mkdir /etc/kubernetes/
+mkdir /var/lib/cni
+mkdir /usr/local/bin/kubernetes-scripts
+/etc/systemd/system/kubelet.service kubelet.service

@@ -1,0 +1,3 @@
+{
+  "rules": "{\"path\": {\"kube/issue/kube-proxy\": {\"policy\": \"write\"}, \"kube/roles/kube-proxy\": {\"policy\": \"read\"}}}"
+}

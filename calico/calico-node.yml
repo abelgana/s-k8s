@@ -30,7 +30,7 @@ spec:
         # container programs network policy and routes on each
         # host.
         - name: calico-node
-          image: quay.io/calico/node:v2.6.2
+          image: quay.io/calico/node:v3.0.1
           env:
             # The location of the Calico etcd cluster.
             - name: ETCD_ENDPOINTS
@@ -46,10 +46,7 @@ spec:
                   key: calico_backend
             # Cluster type to identify the deployment type
             - name: CLUSTER_TYPE
-              valueFrom:
-                configMapKeyRef:
-                  name: calico-config
-                  key: cluster_type
+              value: k8s 
             # Disable file logging so `kubectl logs` works.
             - name: CALICO_DISABLE_FILE_LOGGING
               value: "true"
@@ -57,11 +54,11 @@ spec:
             - name: FELIX_DEFAULTENDPOINTTOHOSTACTION
               value: "RETURN"
 # should be set in etcd before deployment
-#            # Configure the IP Pool from which Pod IPs will be chosen.
-#            - name: CALICO_IPV4POOL_CIDR
-#              value: "192.168.0.0/16"
-#            - name: CALICO_IPV4POOL_IPIP
-#              value: "always"
+            # Configure the IP Pool from which Pod IPs will be chosen.
+            - name: CALICO_IPV4POOL_CIDR
+              value: "10.233.64.0/18"
+            - name: CALICO_IPV4POOL_IPIP
+              value: "always"
             # Disable IPv6 on Kubernetes.
             - name: FELIX_IPV6SUPPORT
               value: "false"

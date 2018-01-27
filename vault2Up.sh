@@ -9,12 +9,14 @@ useradd -U -m vault -G sudo
 chown -R vault /etc/vault/
 chown -R vault /var/log/vault
 chown -R vault /var/lib/vault
+mkdir -p /etc/ssl/etcd/ssl
 (
-cd /home || exit
-tar -xf /home/core/vagrant/vault.tar
-cp /home/core/vagrant/vault2Config.json /etc/vault/config/config.json
-cp /home/vault/ssl/vault2/api.pem /etc/vault/ssl/
-cp /home/vault/ssl/vault2/api-key.pem /etc/vault/ssl/
-cp /home/core/vagrant/vault-02.service /etc/systemd/system/vault.service
+tar -xf certs/vault.tar -C /tmp
+tar -xf certs/etcd.tar -C /tmp
+cp /tmp/home/vault/ssl/vault2/api.pem /etc/vault/ssl/
+cp /tmp/home/vault/ssl/vault2/api-key.pem /etc/vault/ssl/
+cp /tmp/home/etcd/ca.pem /etc/ssl/etcd/ssl/ca.pem
 )
+cp vault/vault2Config.json /etc/vault/config/config.json
+cp vault/vault-02.service /etc/systemd/system/vault.service
 systemctl start vault

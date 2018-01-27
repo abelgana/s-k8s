@@ -1,3 +1,0 @@
-{
-  "rules": "{\"path\": {\"etcd/issue/etcd\": {\"policy\": \"write\"}, \"etcd/roles/etcd\": {\"policy\": \"read\"}}}"
-}

@@ -1,3 +1,0 @@
-{
-  "rules": "{\"path\": {\"vault/issue/vault\": {\"policy\": \"write\"}, \"vault/roles/vault\": {\"policy\": \"read\"}}}"
-}

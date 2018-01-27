@@ -1,3 +1,0 @@
-{
-  "rules": "{\"path\": {\"kube/issue/kube-master\": {\"policy\": \"write\"}, \"kube/roles/kube-master\": {\"policy\": \"read\"}}}"
-}

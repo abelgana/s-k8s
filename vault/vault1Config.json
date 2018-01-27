@@ -1,11 +1,10 @@
 {
     "backend": {
         "etcd": {
-            "address": "https://172.17.8.101:2379",
+            "address": "https://172.17.8.101:2379,https://172.17.8.102:2379,https://172.17.8.103:2379",
             "ha_enabled": "true",
-            "redirect_addr": "https://172.17.8.52:8200",
-            "tls_ca_file": "/etc/ssl/etcd/ssl/ca.pem",
-            "etcd_api": "v3"
+            "redirect_addr": "https://172.17.8.51:8200",
+            "tls_ca_file": "/etc/ssl/etcd/ssl/ca.pem"
         }
     },
     "cluster_name": "kubernetes-vault",

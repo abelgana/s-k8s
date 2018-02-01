@@ -6,21 +6,22 @@ Wants=docker.socket
 
 [Service]
 EnvironmentFile=/etc/kubernetes/kubelet.env
+
 ExecStart=/opt/bin/kubelet \
 		$KUBE_LOGTOSTDERR \
 		$KUBE_LOG_LEVEL \
 		$KUBELET_API_SERVER \
 		$KUBELET_ADDRESS \
 		$KUBELET_PORT \
-		$KUBELET_HOSTNAME \
 		$KUBE_ALLOW_PRIV \
 		$KUBELET_ARGS \
 		$DOCKER_SOCKET \
 		$KUBELET_NETWORK_PLUGIN \
-		$KUBELET_CLOUDPROVIDER
+		--node-ip=$NODE_IP
 Restart=always
 RestartSec=10s
 ExecStartPre=-/usr/bin/docker rm -f kubelet
+ExecStartPre=/bin/bash -c "/bin/systemctl set-environment NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)"
 ExecReload=/usr/bin/docker restart kubelet
 
 

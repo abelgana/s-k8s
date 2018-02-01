@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
     v.cpus = 4
-    v.memory = 3000
+    v.memory = 4096
   end
 
   # plugin conflict

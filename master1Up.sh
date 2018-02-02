@@ -9,9 +9,9 @@ mkdir -p /opt/bin/kubernetes-scripts
 mkdir -p /opt/cni/bin
 mkdir -p /etc/cni/net.d
 
-token=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -X POST -d "{\"password\": \"etcd\"}" https://127.0.0.1:8200/v1/auth/userpass/login/etcd |  jq -r ."auth.client_token")
+token=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"etcd\"}" https://127.0.0.1:8200/v1/auth/userpass/login/etcd |  jq -r ."auth.client_token")
 
-etcdPems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/issueCertMaster1.json https://127.0.0.1:8200/v1/etcd/issue/etcd)
+etcdPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/issueCertMaster1.json https://127.0.0.1:8200/v1/etcd/issue/etcd)
 echo "$etcdPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/etcd.pem
 echo "$etcdPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/etcd-key.pem
 echo "$etcdPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/sn-etcd-key.pem
@@ -19,9 +19,9 @@ echo "$etcdPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/ssl/etc
 chmod 0640 /etc/ssl/etcd/ssl/etcd.pem
 chown kube:kube-cert /etc/ssl/etcd/ssl/*etcd*
 
-token=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-master |  jq -r ."auth.client_token")
+token=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-master |  jq -r ."auth.client_token")
 
-kubeAdminPems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeAdmin.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+kubeAdminPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeAdmin.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 echo "$kubeAdminPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-master-01.pem
 echo "$kubeAdminPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-master-01-key.pem
 echo "$kubeAdminPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/sn-admin-master01.pem
@@ -29,7 +29,7 @@ echo "$kubeAdminPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/ku
 chmod 0640 /etc/kubernetes/ssl/*admin-master-01*
 chown kube:kube-cert /etc/kubernetes/ssl/*admin-master-01*
 
-apiserverPems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+apiserverPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 echo "$apiserverPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/apiserver.pem
 echo "$apiserverPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/apiserver-key.pem
 echo "$apiserverPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/sn-apiserver.pem
@@ -37,7 +37,7 @@ echo "$apiserverPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > /etc/kub
 chmod 0640 /etc/kubernetes/ssl/*apiserver*
 chown kube:kube-cert /etc/kubernetes/ssl/*apiserver*
 
-kubeScheduler=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+kubeScheduler=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 
 echo "$kubeScheduler" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-scheduler.pem
 echo "$kubeScheduler" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-scheduler-key.pem
@@ -46,7 +46,7 @@ echo "$kubeScheduler" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/ku
 chmod 0640 /etc/kubernetes/ssl/*kube-scheduler*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-scheduler*
 
-kubeControllerManagerPems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+kubeControllerManagerPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 
 echo "$kubeControllerManagerPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-controller-manager.pem
 echo "$kubeControllerManagerPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-controller-manager-key.pem
@@ -55,9 +55,9 @@ echo "$kubeControllerManagerPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g
 chmod 0640 /etc/kubernetes/ssl/*kube-controller-manager*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-controller-manager*
 
-token=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-node |  jq -r ."auth.client_token")
+token=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-node |  jq -r ."auth.client_token")
 
-kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeNodeMaster1.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
+kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeNodeMaster1.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
 
 echo "$kubeNodePems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node.pem
 echo "$kubeNodePems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node-key.pem
@@ -66,9 +66,9 @@ echo "$kubeNodePems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kub
 chmod 0640 /etc/kubernetes/ssl/*kube-node*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-node*
 
-token=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-proxy |  jq -r ."auth.client_token")
+token=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-proxy |  jq -r ."auth.client_token")
 
-kubeProxyPems=$(curl --cacert /tmp/home/vault/ssl/vault1/ca.pem -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeProxyMaster1.json https://127.0.0.1:8200/v1/kube/issue/kube-proxy)
+kubeProxyPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeProxyMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-proxy)
 
 echo "$kubeProxyPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy.pem
 echo "$kubeProxyPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy-key.pem
@@ -121,38 +121,3 @@ cp /etc/kubernetes/admin.conf /root/.kube/config
 chmod 700 /root/.kube/config
 
 systemctl start kubelet
-
-
-#cp k8sConfig/calico-kubeconfig1.yaml /etc/cni/net.d/10-calico.conflist
-#chown kube:kube-cert /etc/cni/net.d/10-calico.conflist
-#
-#mkdir -p /etc/calico/certs
-#chown root:root /etc/calico/certs
-#chmod 750 /etc/calico/certs
-#
-#cp /etc/ssl/etcd/ssl/ca.pem /etc/calico/certs/ca_cert.crt
-#cp /etc/ssl/etcd/ssl/etcd.pem /etc/calico/certs/cert.crt
-#cp /etc/ssl/etcd/ssl/etcd-key.pem /etc/calico/certs/key.pem
-#cp calico/calicoctl-container /opt/bin/calicoctl
-#chmod +x /opt/bin/calicoctl
-#docker run --rm -v /opt/cni/bin:/cnibindir quay.io/calico/cni:v1.11.0 sh -c 'cp /opt/cni/bin/* /cnibindir/'
-#chown kube:kube-cert /opt/cni/bin
-#chmod 755 /opt/cni/bin
-#
-#echo '{
-#    "kind": "ipPool",
-#    "spec": {"disabled": false, "ipip": {"enabled": true, "mode": "always"},
-#             "nat-outgoing": true},
-#    "apiVersion": "v1",
-#    "metadata": {"cidr": "10.233.64.0/18"}
-#    }' | calicoctl create -f -
-#
-#curl --cacert /etc/ssl/etcd/ssl/ca.pem https://localhost:2379/v2/keys/calico/v1/ipam/v4/pool | jq -r
-#calicoctl config set asNumber 64512
-#calicoctl config set nodeToNodeMesh off
-#
-#cp calico/calico-config.yml /etc/kubernetes
-#cp calico/calico-node.yml /etc/kubernetes
-#cp calico/calico-node-sa.yml /etc/kubernetes
-#cp calico/calico-cr.yml /etc/kubernetes
-#cp calico/calico-crb.yml /etc/kubernetes

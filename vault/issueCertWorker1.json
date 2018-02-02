@@ -2,6 +2,6 @@
     "common_name": "etcd:node:worker-01",
     "alt_names": "master-01,master-02,master-03,worker-01,worker-02,worker-03,localhost",
     "format": "pem",
-    "ip_sans": "127.0.0.1,172.17.8.50,172.17.8.51,172.17.8.52,172.17.8.150,172.17.8.151,172.17.8.152",
+    "ip_sans": "127.0.0.1,172.17.8.51,172.17.8.52,172.17.8.151,172.17.8.152",
     "ttl" : "600h"
 }

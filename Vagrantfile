@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
     v.functional_vboxsf     = false
     v.cpus = 4
     v.memory = 4096
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
   # plugin conflict

@@ -42,52 +42,37 @@ certVault1=$(curl -H "Content-Type: application/json" -H "X-Vault-Token: $vaultT
 certVault2=$(curl -H "Content-Type: application/json" -H "X-Vault-Token: $vaultToken" -d @vault/issueCertVault2.json -X POST http://0.0.0.0:8200/v1/vault/issue/vault)
 (
 cd /home || exit
-mkdir -p vault/ssl/vault1
-cd vault/ssl/vault1 || exit
-echo "$certVault1" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > api.pem
-echo "$certVault1" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > api-key.pem
-echo "$certVault1" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca.pem
-echo "$certVault1" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > api.serial
-)
-(
-cd /home || exit
-mkdir -p vault/ssl/vault2
-cd vault/ssl/vault2 || exit
-echo "$certVault2" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > api.pem
-echo "$certVault2" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > api-key.pem
-echo "$certVault2" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca.pem
-echo "$certVault2" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > api.serial
+mkdir -p vault/ssl
+cd vault/ssl
+echo "$certVault1" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > api-master-01.pem
+echo "$certVault1" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > api-master-01-key.pem
+echo "$certVault1" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca-master-01.pem
+echo "$certVault1" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > api-master-01.serial
+echo "$certVault2" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > api-master-02.pem
+echo "$certVault2" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > api-master-02-key.pem
+echo "$certVault2" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca-master-02.pem
+echo "$certVault2" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > api-master-02.serial
 )
 
 etcdToken=$(curl -H "Content-Type: application/json" -X POST -d "{\"password\": \"etcd\"}" http://0.0.0.0:8200/v1/auth/userpass/login/etcd | jq -r ."auth.client_token")
 certEtcd1=$(curl -H "Content-Type: application/json" -H "X-Vault-Token: $etcdToken" -d @vault/issueCertEtcd1.json -X POST http://0.0.0.0:8200/v1/etcd/issue/etcd)
 certEtcd2=$(curl -H "Content-Type: application/json" -H "X-Vault-Token: $etcdToken" -d @vault/issueCertEtcd2.json -X POST http://0.0.0.0:8200/v1/etcd/issue/etcd)
 certEtcd3=$(curl -H "Content-Type: application/json" -H "X-Vault-Token: $etcdToken" -d @vault/issueCertEtcd3.json -X POST http://0.0.0.0:8200/v1/etcd/issue/etcd)
+
 (
-cd /home || exit
-mkdir -p etcd/ssl/etcd1
-cd etcd/ssl/etcd1 || exit
+mkdir -p /home/etcd/ssl
+cd /home/etcd/ssl || exit
 echo "$certEtcd1" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > etcd-01.pem
 echo "$certEtcd1" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > etcd-01-key.pem
-echo "$certEtcd1" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca.pem
+echo "$certEtcd1" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca-etcd-01.pem
 echo "$certEtcd1" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > etcd-01.serial
-)
-(
-cd /home || exit
-mkdir -p etcd/ssl/etcd2
-cd etcd/ssl/etcd2 || exit
 echo "$certEtcd2" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > etcd-02.pem
 echo "$certEtcd2" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > etcd-02-key.pem
-echo "$certEtcd2" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca.pem
+echo "$certEtcd2" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca-etcd-02.pem
 echo "$certEtcd2" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > etcd-02.serial
-)
-(
-cd /home || exit
-mkdir -p etcd/ssl/etcd3
-cd etcd/ssl/etcd3 || exit
 echo "$certEtcd3" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > etcd-03.pem
 echo "$certEtcd3" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > etcd-03-key.pem
-echo "$certEtcd3" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca.pem
+echo "$certEtcd3" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > ca-etcd-03.pem
 echo "$certEtcd3" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > etcd-03.serial
 )
 

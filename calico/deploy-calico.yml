@@ -71,9 +71,9 @@ data:
   # not using TLS for etcd.
   # This self-hosted install expects three files with the following names.  The values
   # should be base64 encoded strings of the entire contents of each file.
-  etcd-key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBdGZqYm9yZlE2SnR1dW1TaTF6dEljTEtMYVBQQk1qRzdDZ1ZqaGs3MXRiSUhXV3pDCmF5ZUoxVjNQeTNtK0NsM3JwSEJDSndqeTd3M3dyWWlSekJ4RGdnWGk2MDFiM3g0YzB4V1o3RTVuNGw1UmphN1cKN0t1MnFic1NmNUNGdjlDbkhReFpXMkg0bDFZWW9ZQ2pSTlBVOUpEMlhHSE1HRlZXZWxUOXV3RjBKcXd3S3VzZApWTVQrZzVLSHoyTWRuRkJwQ2pub0txNHBaK0Ftak9yeWFHQ0VNK2JPWkYxTk1FTVh3Q2FzQlNDT0RJWUFkblBtCkUxY3hrR1hHNkpCRTMvM1RyNTNUTG0rQzhnS1VzK3hBcnVHNkhrdWZMbmZTMUx2M2gvUUkvZWVqRndWcSt2eG8KRVpFVHlHSWJZQnZ1WnRLRkR4TWk1Uy9Tcy9GdHR0d0REdGxia3dJREFRQUJBb0lCQUNRVnlWZ25JMkk5RUdRZAorTHk5b012WVhCVGY0WHZXcU1SLzlSQjVML2hyNlZFdVpBOWpzODEvNE9qMHAxN2U2UStld3orQ1lzcE05V0UwCko5VlY5WDBmTmJSN2pyQmNCRk5IZ1ZKKzZkTFY2VTR6VWFOMUdhL216UEJHOUg3cEhYcUJMR2NXc25rd05Zb3gKUEM4MTRwRHMvaTJycHhGY090M2ZaTUZrdEdmR2YzMXBKSHp6RnVmNlZ5eWt4ZFMxRUZOQ2Z1Z1dtc0pEdTloQQpoZGx3a3hidUVhb0t3THFzL2xRVnphUmVBQUU3aEJMM0NnWlY5UWwvQWFXZTBsS2RsL0FibDh2c3JvZ0tvdmZBCnUxZy9sNERJSHhMMGRHMnRwUzJ4Qk13WmtJYUFRa21mNDVuRFZaMXgxRDk1VCtDd2pzV2ZWc1lONjFGN05YL1IKV1V0RWVVRUNnWUVBN08yWXhKMEN3WnhYOWhTcnJKRjAyMnlIODhYd29GRktTeEJTZUhKWnVQRDVMQUxMZncwaApBWWdiQk14b3gxTnhqc0RHOFR5R2I2RTJCa0ZTTVNMY2JFYUhIMDd1WnhGUkQ2RlJwWTBXRlJWeXNiU3ArWVBrCjk3aFk1a21hTE1yQVJHNEtIeG40cURlZjBxVDljSGdSRXh0d2tXcjFiRlhWS3VDQlZnbDE4TWtDZ1lFQXhKN0cKMkQ1RWZJSUlqVlpCaEkzVmkyZEZwbFpLbVRsSXdYd3h4R0hZMk5MY2NoUWJlMHdTWXhtZzdzMVVWT0dxL2laSgorT2pIM2NKYUtRclVCYTlzRE1PMTNnbDk2S1hQeThnNmt4TmxzTmlpRnhqUmtIZjFsL2xtN04zSHZMenQ2U0lqCmJaTFc2bWhaVEVBLzFaY2c5Qk5ZNDNsWkJnUFhrc0RKbUYxeDAzc0NnWUJQT0M2Qlp5Slp6RVhaQVJaWjBCVHIKblVGajhBWkNCSXc3eHd4Y081Zm1iNlJRNCtwWTQvSHFTakVHakxab0YyMTcxdGR1SjllbmtaYTN4cldOdW1OTApUTlczVVRRRGdGWERUU1E0bjVFSG9iRkUyK3lOZ2wxWHV1cjJyUnVBNkpZYkMxUVZEQ0VKVmZmNWZiTkVITkZRCnV6Y0xXR0VSUlMzT2RWeXBnT1pQaVFLQmdGRXZEZ056a211bWRVbUdkLzczWVZqeUJ6d3JIUm92SU85akRGbDkKM1QrSnNTUVpVVStUbFhQOXZRbGRGcGtGcE1qVG5tOThEaXB1ZVRQQkdOSlFJRmtVNWg4TDVFVVBVY0ZlcDNEYQo3WDRidExHOHVhcmhIVExtODZ5UjFrc0Q1MmYvaElsVnZBK0Zqbm1CZmRuL1VNZjJ4UmtIbmM1eC82ekVsWGluCi9MdkpBb0dCQU9qU1VyZlpJRU1mZTlEc1kyTkRuS3NPN2N3eTlzUWNMTmp6YjhBTmpTR215S3dPN2RMNTluWGsKbVYyNzdXTEJZU0FTdjBTOEI2NTNvbXFCdVFFOFF6YVZNZFVKS29udUFrY1c1VE5mUllsL0ZSSGw0SFB2aVZjbgp0RGNpamdwSDhEOUEzcHpoLzVmWnhKa1RjRWJycDBJQjhnTzBxa2x6Z3IrNnAvK01pd2JTCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-  etcd-cert: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUQzakNDQXNhZ0F3SUJBZ0lVSHFCYmM1SXRueGRHUjVWdW5rYm1iQ3R5NnlBd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0R6RU5NQXNHQTFVRUF4TUVaWFJqWkRBZUZ3MHhPREF4TXpFeU1qUTROVEphRncweE9EQXlNalV5TWpRNQpNakphTURJeEVqQVFCZ05WQkFvVENXdDFZbVU2WlhSalpERWNNQm9HQTFVRUF4TVRaWFJqWkRwdWIyUmxPbTFoCmMzUmxjaTB3TVRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTFg0MjZLMzBPaWIKYnJwa290YzdTSEN5aTJqendUSXh1d29GWTRaTzliV3lCMWxzd21zbmlkVmR6OHQ1dmdwZDY2UndRaWNJOHU4Tgo4SzJJa2N3Y1E0SUY0dXROVzk4ZUhOTVZtZXhPWitKZVVZMnUxdXlydHFtN0VuK1FoYi9RcHgwTVdWdGgrSmRXCkdLR0FvMFRUMVBTUTlseGh6QmhWVm5wVS9ic0JkQ2FzTUNyckhWVEUvb09TaDg5akhaeFFhUW81NkNxdUtXZmcKSm96cThtaGdoRFBtem1SZFRUQkRGOEFtckFVZ2pneUdBSFp6NWhOWE1aQmx4dWlRUk4vOTA2K2QweTV2Z3ZJQwpsTFBzUUs3aHVoNUxueTUzMHRTNzk0ZjBDUDNub3hjRmF2cjhhQkdSRThoaUcyQWI3bWJTaFE4VEl1VXYwclB4CmJiYmNBdzdaVzVNQ0F3RUFBYU9DQVEwd2dnRUpNQTRHQTFVZER3RUIvd1FFQXdJRHFEQWRCZ05WSFNVRUZqQVUKQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0hRWURWUjBPQkJZRUZGV09ZamJFTWYvV2VoSDhiamNtOTJBQwpPcGwvTUI4R0ExVWRJd1FZTUJhQUZLRG5JbldZVXRRUkhITU8wQ2VXVW41UVVYaTlNSUdYQmdOVkhSRUVnWTh3CmdZeUNFMlYwWTJRNmJtOWtaVHB0WVhOMFpYSXRNREdDQ1d4dlkyRnNhRzl6ZElJSmJXRnpkR1Z5TFRBeGdnbHQKWVhOMFpYSXRNREtDQ1cxaGMzUmxjaTB3TTRJSmQyOXlhMlZ5TFRBeGdnbDNiM0pyWlhJdE1ES0NDWGR2Y210bApjaTB3TTRjRWZ3QUFBWWNFckJFSU1vY0VyQkVJTTRjRXJCRUlOSWNFckJFSWxvY0VyQkVJbDRjRXJCRUltREFOCkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQUV4WVZDWjNpVVdMQUViZ3ViU05WRnBYcXZCZTVock95eHZ6K0NLSUQKQThiOGpuMVUzU0FkZDk3OTBmbHhxK1pMeEg0SVVPSFdSWWRNRnhHbjNXU1lwSGxhZHFvODJuMVE1aGJmQVdCMgpmL0RFRFJkUGY1NS9xZmk0SzVjZC9QdDF5d1dXNWxSNC9tN052aHhrZ3lKMzVmd1FkZCs3Tlg2czhWaVF2N0NhCmlzMU9QRkx4aGxmY2tKc3BneGJPTHIwOXZIc09aTDdOZENkRE9nVFEwMlFwckk2WFRtc2l5aE5STGhRM3ZZcmoKc0VCTEUwZWlCVUM3MFQzcmQ3QURlRy9hMUg3eUFSUUdKeDJjTlpkcHpYU1gxYTMyUDkybHU0OERVblZ6ZEdILwpBQnZjd0hXcFJtaHBzWUNIZmpqYkV4T25mWEFWSXV4UFdOSGNhdllBOCt0b0FRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-  etcd-ca: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUREekNDQWZlZ0F3SUJBZ0lVS2E5S2E4VnNWcFF3c0ZYWHdldEI4T1BHcWpvd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0R6RU5NQXNHQTFVRUF4TUVaWFJqWkRBZUZ3MHhPREF4TXpFeU1qUTBNakJhRncweE9ERXdNRGd5TWpRMApOVEJhTUE4eERUQUxCZ05WQkFNVEJHVjBZMlF3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUNpUS83dXNORTg3MHZtME5sVy91dEQyN2F1NkIzbjRaazdxQ09NN3ZxRGZMNlAxR1FlTW1iYlV4QkcKd3dnTnVJNmxyOVMyakZCQWV1NUN6QUZudm9mcTZORnB3Mm9zWnM3QnFvRVNzVW92Rk0xVWZiQnhSNFR3OTU2Vgpna3o2SGlMM1JtTXBxVDBGQWRWTzdUVHRhZFE3bE5MWUhRMmpocGIzOWd5TVFmTkVGWTRwRzRhQWJjb3lqMHFLClFxYWMrM05DcytKMGx1OXl2L1FRampzNGJ3Um9rcUFZSUZ5NzU5aVk2ZEcrVml2eng1YTIxakFzekZXYmVJblIKUVZRZmJVSVhSblAvOHJhZmVUQm5mRUdtWDBySDZDQ0hKQzlKMmtNemgyZlBQMzBFeUlKbnNrVVIwODljWTd3RQpKSGh0aDFwVGZoVnpzbDRRNnpwb0R0bTh6a2kxQWdNQkFBR2pZekJoTUE0R0ExVWREd0VCL3dRRUF3SUJCakFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJTZzV5SjFtRkxVRVJ4ekR0QW5sbEorVUZGNHZUQWYKQmdOVkhTTUVHREFXZ0JTZzV5SjFtRkxVRVJ4ekR0QW5sbEorVUZGNHZUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBSVRRWUNZR3Mvakt2dFkzNjVUaGdUVW5tMHBJUFUvdWV4TDMyc2I1OXR3czg1ZmhsUXl5Qmg3Y0RCWXQ1CkNKSkJOL3RiK2IwL0RDN3FlTlJkTzhDL2tCbUhGeW82clFjc1hybmFTYU9od0xIZ0NoZm84UWlObzE1ZzZzRmEKZHV0VEZpRkl5blVsVTJQREZWWkZ4a0xSTkh0WmJWRHRScVNQMWFrRVlIWGlydFZXMHRxN3pzR0szQzNxMVhTQQpoMEl6VmhtYnh6QlhnTmJ0TkRKQmNjaVN5YVFLd1NjdWNGd1N4cmFMQVA2KzJZcTBpaG43NDVRak9wV0tQckZkCis4bG9KMWNKeFZNbjZ4cXVaZXJpc1NJWG40UlFpT2RmR2hIcHJnNzZ5d3ZJbnJKYWZYWE15RmZoK1d0UjNDLzEKdFh2eGZMS2lGb3hTTHhncENXNi9WdGZLaHc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  etcd-key: __ETCD_KEY__
+  etcd-cert: __ETCD_CERT__
+  etcd-ca: __ETCD_CA__
 
 
 ---
@@ -112,8 +112,7 @@ spec:
       # deletion": https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods.
       terminationGracePeriodSeconds: 0
       tolerations:
-        - effect: NoSchedule
-          operator: Exists
+        - operator: Exists
       containers:
         # Runs calico/node container on each Kubernetes node.  This
         # container programs network policy and routes on each
@@ -149,7 +148,7 @@ spec:
               value: "ACCEPT"
             # Configure the IP Pool from which Pod IPs will be chosen.
             - name: CALICO_IPV4POOL_CIDR
-              value: "192.168.0.0/16"
+              value: "10.233.64.0/18"
             - name: CALICO_IPV4POOL_IPIP
               value: "Always"
             # Disable IPv6 on Kubernetes.
@@ -262,13 +261,14 @@ spec:
 
 # This manifest deploys the Calico Kubernetes controllers.
 # See https://github.com/projectcalico/kube-controllers
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: calico-kube-controllers
   namespace: kube-system
   labels:
     k8s-app: calico-kube-controllers
+    node-role.kubernetes.io/node: "true"
   annotations:
     scheduler.alpha.kubernetes.io/critical-pod: ''
     scheduler.alpha.kubernetes.io/tolerations: |
@@ -279,20 +279,23 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/node: "true"
   template:
     metadata:
       name: calico-kube-controllers
       namespace: kube-system
       labels:
         k8s-app: calico-kube-controllers
+        node-role.kubernetes.io/node: "true"
     spec:
       # The controllers must run in the host network namespace so that
       # it isn't governed by policy that would prevent it from working.
       hostNetwork: true
       serviceAccountName: calico-kube-controllers
       tolerations:
-        - effect: NoSchedule
-          operator: Exists
+        - operator: Exists
       containers:
         - name: calico-kube-controllers
           image: quay.io/calico/kube-controllers:v2.0.0
@@ -321,6 +324,8 @@ spec:
                 configMapKeyRef:
                   name: calico-config
                   key: etcd_cert
+            - name: KUBECONFIG
+              value: /kubeconfig
             # Choose which controllers to run.
             - name: ENABLED_CONTROLLERS
               value: policy,profile,workloadendpoint,node
@@ -328,11 +333,23 @@ spec:
             # Mount in the etcd TLS secrets.
             - mountPath: /calico-secrets
               name: etcd-certs
+            - mountPath: /kubeconfig
+              name: kubeconfig  
+            - mountPath: /etc/kubernetes/ssl/
+              name: kube-ssl 
       volumes:
         # Mount in the etcd TLS secrets.
         - name: etcd-certs
           secret:
             secretName: calico-etcd-secrets
+        - name: kubeconfig
+          hostPath:
+            path: /root/.kube/config
+        - name: kube-ssl
+          hostPath:
+            path: /etc/kubernetes/ssl/
+            
+      
 
 ---
 
@@ -349,3 +366,65 @@ kind: ServiceAccount
 metadata:
   name: calico-node
   namespace: kube-system
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: calico-kube-controllers
+rules:
+  - apiGroups:
+    - ""
+    - extensions
+    resources:
+      - pods
+      - namespaces
+      - networkpolicies
+      - nodes
+    verbs:
+      - watch
+      - list
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: calico-kube-controllers
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: calico-kube-controllers
+subjects:
+- kind: ServiceAccount
+  name: calico-kube-controllers
+  namespace: kube-system
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: calico-node
+rules:
+  - apiGroups: [""]
+    resources:
+      - pods
+      - nodes
+    verbs:
+      - get
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: calico-node
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: calico-node
+subjects:
+- kind: ServiceAccount
+  name: calico-node
+  namespace: kube-system
+

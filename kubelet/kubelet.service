@@ -17,7 +17,7 @@ ExecStart=/opt/bin/kubelet \
 		$KUBELET_ARGS \
 		$DOCKER_SOCKET \
 		$KUBELET_NETWORK_PLUGIN \
-		--node-ip=$NODE_IP
+		--node-ip=${NODE_IP}
 Restart=always
 RestartSec=10s
 ExecStartPre=-/usr/bin/docker rm -f kubelet

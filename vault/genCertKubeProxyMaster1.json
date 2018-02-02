@@ -1,5 +1,0 @@
-{
-    "common_name": "system:kube-proxy",
-    "format": "pem",
-    "ttl": "60h"
-}

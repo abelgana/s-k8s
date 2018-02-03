@@ -1,0 +1,18 @@
+[Unit]
+Description=etcd docker wrapper
+Wants=docker.socket
+After=docker.service
+
+[Service]
+User=root
+PermissionsStartOnly=true
+ExecStart=/opt/bin/namerd
+ExecStartPre=-/usr/bin/docker rm -f namerd
+ExecStop=/usr/bin/docker stop namerd
+Restart=always
+RestartSec=15s
+TimeoutStartSec=30s
+
+[Install]
+WantedBy=multi-user.target
+

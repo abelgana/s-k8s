@@ -1,0 +1,17 @@
+admin:
+  port: 9989
+  ip: 0.0.0.0
+  metricsIntervalSecs: 10
+
+routers:
+  - label: default
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://172.17.8.101:4180
+      namespace: default
+      periodSecs: 20
+
+    servers:
+      - port: 2379
+        dstName: /svc/etcd
+        connectTimeoutMs: 500

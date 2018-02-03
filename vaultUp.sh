@@ -22,4 +22,6 @@ cp vault/vaultConfig.json /etc/vault/config/config.json
 NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
 sed "s/__LOCAL_IP__/${NODE_IP}/g" /etc/vault/config/config.json -i
 cp vault/vault.service /etc/systemd/system/vault.service
-systemctl start vault
+systemctl daemon-reload
+systemctl start vault.service
+systemctl start vault.service

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+/usr/bin/docker run \
+  --restart=on-failure:5 \
+  --net=host \
+  -p 9989:9989 \
+  -p 2379:2379 \
+  -v /etc/linkerd-tcp/linkerd-tcp-config.yml:/config.yml:ro \
+  --name=linkerd-tcp \
+  linkerd/linkerd-tcp:0.1.1 \
+  /config.yml \
+  "$@"

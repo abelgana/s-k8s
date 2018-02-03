@@ -1,0 +1,13 @@
+#!/bin/bash
+
+/usr/bin/docker run \
+  --restart=on-failure:5 \
+  --net=host \
+  -p 4180:4180 \
+  -p 9991:9991 \
+  -v /etc/namerd/namerd-config.yml:/io.buoyant/namerd/config.yml:ro \
+  -v /etc/namerd/disco:/disco \
+  --name=namerd \
+  buoyantio/namerd:1.3.5 \
+  /io.buoyant/namerd/config.yml \
+  "$@"

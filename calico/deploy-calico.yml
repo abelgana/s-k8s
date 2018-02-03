@@ -13,7 +13,7 @@ metadata:
   namespace: kube-system
 data:
   # Configure this with the location of your etcd cluster.
-  etcd_endpoints: "https://172.17.8.101:2379,https://172.17.8.102:2379,https://172.17.8.103:2379"
+  etcd_endpoints: "https://127.0.0.1:2379"
 
   # Configure the Calico backend to use.
   calico_backend: "bird"

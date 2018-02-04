@@ -8,10 +8,17 @@ chgrp kube-cert /etc/kubernetes/ssl/
 mkdir -p /opt/bin/kubernetes-scripts
 mkdir -p /opt/cni/bin
 mkdir -p /etc/cni/net.d
+mkdir -p /etc/vault
+
+cp certs/ca.pem /etc/kubernetes/ssl/
+cp certs/ca-key.pem /etc/kubernetes/ssl/
+
+source k8sConfig/k8sConfig-vars.sh
 
 token=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"etcd\"}" https://127.0.0.1:8200/v1/auth/userpass/login/etcd |  jq -r ."auth.client_token")
 
-etcdPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/issueCertMaster1.json https://127.0.0.1:8200/v1/etcd/issue/etcd)
+envsubst < vault/issueCertNode.json > /etc/vault/issueCertNode.json
+etcdPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/issueCertNode.json https://127.0.0.1:8200/v1/etcd/issue/etcd)
 echo "$etcdPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/etcd.pem
 echo "$etcdPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/etcd-key.pem
 echo "$etcdPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/ssl/etcd/ssl/sn-etcd-key.pem
@@ -21,15 +28,17 @@ chown kube:kube-cert /etc/ssl/etcd/ssl/*etcd*
 
 token=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-master |  jq -r ."auth.client_token")
 
-kubeAdminPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeAdmin.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
-echo "$kubeAdminPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-${HOSTNAME}.pem
-echo "$kubeAdminPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-${HOSTNAME}-key.pem
-echo "$kubeAdminPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/sn-admin-${HOSTNAME}.pem
-echo "$kubeAdminPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/ca-admin-${HOSTNAME}.pem
+cp vault/genCertKubeAdmin.json /etc/vault/
+kubeAdminPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeAdmin.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+echo "$kubeAdminPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin.pem
+echo "$kubeAdminPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-key.pem
+echo "$kubeAdminPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/sn-admin.pem
+echo "$kubeAdminPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/ca-admin.pem
 chmod 0640 /etc/kubernetes/ssl/*admin-${HOSTNAME}*
 chown kube:kube-cert /etc/kubernetes/ssl/*admin-${HOSTNAME}*
 
-apiserverPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+cp vault/genCertKubeMaster.json /etc/vault
+apiserverPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 echo "$apiserverPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/apiserver.pem
 echo "$apiserverPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/apiserver-key.pem
 echo "$apiserverPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' > /etc/kubernetes/ssl/sn-apiserver.pem
@@ -37,7 +46,8 @@ echo "$apiserverPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' > /etc/kub
 chmod 0640 /etc/kubernetes/ssl/*apiserver*
 chown kube:kube-cert /etc/kubernetes/ssl/*apiserver*
 
-kubeScheduler=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+cp vault/genCertKubeMaster.json /etc/vault
+kubeScheduler=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 
 echo "$kubeScheduler" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-scheduler.pem
 echo "$kubeScheduler" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-scheduler-key.pem
@@ -46,7 +56,8 @@ echo "$kubeScheduler" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/ku
 chmod 0640 /etc/kubernetes/ssl/*kube-scheduler*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-scheduler*
 
-kubeControllerManagerPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
+cp vault/genCertKubeMaster.json /etc/vault
+kubeControllerManagerPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
 
 echo "$kubeControllerManagerPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-controller-manager.pem
 echo "$kubeControllerManagerPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-controller-manager-key.pem
@@ -57,7 +68,8 @@ chown kube:kube-cert /etc/kubernetes/ssl/*kube-controller-manager*
 
 token=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-node |  jq -r ."auth.client_token")
 
-kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeNodeMaster1.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
+envsubst < vault/genCertKubeNodeMaster.json > /etc/vault/genCertKubeNodeMaster.jso
+kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeNodeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
 
 echo "$kubeNodePems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node.pem
 echo "$kubeNodePems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node-key.pem
@@ -68,7 +80,8 @@ chown kube:kube-cert /etc/kubernetes/ssl/*kube-node*
 
 token=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-proxy |  jq -r ."auth.client_token")
 
-kubeProxyPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeProxyMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-proxy)
+cp vault/genCertKubeProxyMaster.json /etc/vault
+kubeProxyPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeProxyMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-proxy)
 
 echo "$kubeProxyPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy.pem
 echo "$kubeProxyPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy-key.pem
@@ -97,8 +110,7 @@ cp k8sConfig/node-kubeconfig.yaml /etc/kubernetes/
 
 mkdir -p /etc/kubernetes/manifests/
 
-cp k8sManifest/kube-proxy1.manifest /etc/kubernetes/manifests/kube-proxy.manifest
-
+envsubst < k8sManifest/kube-proxy.manifest > /etc/kubernetes/manifests/kube-proxy.manifest
 
 mkdir -p /etc/kubernetes/users/
 chgrp kube-cert /etc/kubernetes/users/
@@ -106,16 +118,16 @@ cp k8sConfig/known_users.csv /etc/kubernetes/users/
 
 docker run --rm -v /opt/bin:/systembindir quay.io/coreos/hyperkube:v1.9.2_coreos.0 /bin/cp /hyperkube /systembindir/kubectl
 
-cp k8sManifest/kube-apiserver1.manifest /etc/kubernetes/manifests/kube-apiserver.manifest
+envsubst < k8sManifest/kube-apiserver.manifest > /etc/kubernetes/manifests/kube-apiserver.manifest
 
 cp k8sConfig/kube-scheduler-kubeconfig.yaml /etc/kubernetes/
-cp k8sManifest/kube-scheduler1.manifest /etc/kubernetes/manifests/kube-scheduler.manifest
+cp k8sManifest/kube-scheduler.manifest /etc/kubernetes/manifests/kube-scheduler.manifest
 cp k8sConfig/kube-controller-manager-kubeconfig.yaml /etc/kubernetes/
-cp k8sManifest/kube-controller-manager1.manifest /etc/kubernetes/manifests/kube-controller-manager.manifest
+cp k8sManifest/kube-controller-manager.manifest /etc/kubernetes/manifests/kube-controller-manager.manifest
 
 mkdir -p /root/.kube
 chmod 700 /root/.kube
-cp k8sConfig/admin1.conf /etc/kubernetes/admin.conf
+envsubst < k8sConfig/admin.conf > /etc/kubernetes/admin.conf
 chmod 640 /etc/kubernetes/admin.conf
 cp /etc/kubernetes/admin.conf /root/.kube/config
 chmod 700 /root/.kube/config

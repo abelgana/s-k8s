@@ -19,8 +19,8 @@ cp /tmp/home/vault/ssl/api-${HOSTNAME}.pem /etc/vault/ssl/aca.pem
 cp /tmp/home/etcd/ca.pem /etc/ssl/etcd/ssl/ca.pem
 )
 cp vault/vaultConfig.json /etc/vault/config/config.json
-NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
-sed "s/__LOCAL_IP__/${NODE_IP}/g" /etc/vault/config/config.json -i
+export NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
+envsubst < vault/vaultConfig.json > /etc/vault/config/config.json 
 cp vault/vault.service /etc/systemd/system/vault.service
 systemctl daemon-reload
 systemctl start vault.service

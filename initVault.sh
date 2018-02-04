@@ -39,13 +39,10 @@ CA=$(cat /tmp/home/etcd/ca-key.pem /tmp/home/etcd/ca.pem | awk 'BEGIN {RS=""}{gs
 (echo "{ "; echo  \ \ \ \""pem_bundle\"": \"$CA\"; echo }) > vault/putCAetcd.json
 curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $root_token" -X POST -d @vault/putCAetcd.json https://127.0.0.1:8200/v1/etcd/config/ca
 
-kubePems=$(curl --cacert /tmp/home/vault/ssl/ca-master-02.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $root_token" -X POST -d @vault/genCertKube.json https://127.0.0.1:8200/v1/kube/root/generate/exported)
+kubePems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $root_token" -X POST -d @vault/genCertKube.json https://127.0.0.1:8200/v1/kube/root/generate/exported)
 (
-mkdir -p /etc/kubernetes/ssl
-cd /etc/kubernetes/ssl || exit
+mkdir certs
+cd certs/ || exit
 echo "$kubePems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' > ca.pem
 echo "$kubePems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' > ca-key.pem
 )
-
-cp /etc/kubernetes/ssl/ca.pem certs/
-cp /etc/kubernetes/ssl/ca-key.pem certs/

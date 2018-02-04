@@ -1,7 +1,5 @@
 #!/bin/sh
 
-
-
 mkdir -p /opt/bin
 cp etcd/etcd /opt/bin/etcd
 chmod +x /opt/bin/etcd

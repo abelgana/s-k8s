@@ -1,6 +1,0 @@
-{
-    "common_name": "system:node:master-02",
-    "format": "pem",
-    "ttl": "60h",
-    "exclude_cn_from_sans": "true"
-}

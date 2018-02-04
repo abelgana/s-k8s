@@ -1,7 +1,7 @@
 {
     "common_name": "vault",
     "format": "pem",
-    "ttl": "6000h",
+    "ttl": "43800h",
     "exclude_cn_from_sans": "true",
     "alt_names": "vault.kube-system.svc.cluster.local,vault.kube-system.svc,vault.kube-system,vault"
 }

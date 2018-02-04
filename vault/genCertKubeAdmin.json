@@ -1,5 +1,5 @@
 {
     "common_name": "admin",
     "format": "pem",
-    "ttl": "60h"
+    "ttl": "43800h"
 }

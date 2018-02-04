@@ -1,6 +1,6 @@
 {
     "common_name": "etcd",
     "format": "pem",
-    "ttl": "6000h",
+    "ttl": "87600h",
     "exclude_cn_from_sans": "true"
 }

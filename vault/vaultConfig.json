@@ -3,13 +3,13 @@
         "etcd": {
             "address": "https://127.0.0.1:2379",
             "ha_enabled": "true",
-            "redirect_addr": "https://__LOCAL_IP__:8200",
+            "redirect_addr": "https://${__NODE_IP__}:8200",
             "tls_ca_file": "/etc/ssl/etcd/ssl/ca.pem",
             "etcd_api": "v3"
         }
     },
     "cluster_name": "kubernetes-vault",
-    "default_lease_ttl": "87600h",
+    "default_lease_ttl": "43800h",
     "max_lease_ttl": "87600h",
     "listener":{
         "tcp":{

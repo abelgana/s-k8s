@@ -1,5 +1,5 @@
 {
-    "common_name": "kube",
+    "common_name": "system:node:{HOSTNAME}",
     "format": "pem",
     "ttl": "43800h",
     "exclude_cn_from_sans": "true"

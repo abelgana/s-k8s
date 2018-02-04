@@ -2,9 +2,8 @@
 
 mkdir /etc/vault
 cp vault/vault_temp_config.json /etc/vault/vault_temp_config.json
-docker pull vault:0.9.0
 docker run -itd --cap-add=IPC_LOCK --name vault -p 8200:8200  -v /etc/vault:/etc/vault vault:0.9.0 server -config=/etc/vault/vault_temp_config.json
-sleep 10
+sleep 5
 
 allkeys=$(curl -H "Content-Type: application/json" --request PUT --data @vault/init.json http://127.0.0.1:8200/v1/sys/init)
 key=$(echo "$allkeys" | jq .'keys'[0])

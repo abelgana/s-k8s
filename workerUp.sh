@@ -53,7 +53,7 @@ update-ca-certificates
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni
 
-cp kubelet/kubelet.env /etc/kubernetes/kubelet.env
+cp kubelet/kubelet-worker.env /etc/kubernetes/kubelet.env
 cp kubelet/kubelet.service /etc/systemd/system/kubelet.service
 cp kubelet/kubelet-kubeconfig.yaml /etc/kubernetes/kubelet-kubeconfig.yaml
 cp kubelet/kubelet-container.sh /opt/bin/kubelet
@@ -61,6 +61,3 @@ chmod +x /opt/bin/kubelet
 systemctl daemon-reload
 systemctl start kubelet
 
-mkdir -p /etc/nginx
-cp nginx/nginx.conf /etc/nginx
-cp nginx/nginx.manifest /etc/kubernetes/manifests/

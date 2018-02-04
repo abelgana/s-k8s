@@ -15,3 +15,7 @@ routers:
       - port: 2379
         dstName: /svc/etcd
         connectTimeoutMs: 500
+
+      - port: 6443
+        dstName: /svc/apiserver
+        connectTimeoutMs: 500

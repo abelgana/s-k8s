@@ -7,7 +7,7 @@ routers:
   - label: default
     interpreter:
       kind: io.l5d.namerd.http
-      baseUrl: http://${__NAMERD_IP__}:4180
+      baseUrl: http://${NAMERD_IP}:4180
       namespace: default
       periodSecs: 20
 

@@ -34,8 +34,8 @@ echo "$kubeAdminPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/k
 echo "$kubeAdminPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/admin-key.pem
 echo "$kubeAdminPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/sn-admin.pem
 echo "$kubeAdminPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/ca-admin.pem
-chmod 0640 /etc/kubernetes/ssl/*admin-${HOSTNAME}*
-chown kube:kube-cert /etc/kubernetes/ssl/*admin-${HOSTNAME}*
+chmod 0640 /etc/kubernetes/ssl/*admin*
+chown kube:kube-cert /etc/kubernetes/ssl/*admin*
 
 cp vault/genCertKubeMaster.json /etc/vault
 apiserverPems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-master)
@@ -68,8 +68,8 @@ chown kube:kube-cert /etc/kubernetes/ssl/*kube-controller-manager*
 
 token=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -X POST -d "{\"password\": \"kube\"}" https://127.0.0.1:8200/v1/auth/userpass/login/kube-node |  jq -r ."auth.client_token")
 
-envsubst < vault/genCertKubeNodeMaster.json > /etc/vault/genCertKubeNodeMaster.jso
-kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @vault/genCertKubeNodeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
+envsubst < vault/genCertKubeNodeMaster.json > /etc/vault/genCertKubeNodeMaster.json
+kubeNodePems=$(curl --cacert /tmp/home/vault/ssl/ca-${HOSTNAME}.pem  -H "Content-Type: application/json" -H "X-Vault-Token: $token" -X POST -d @/etc/vault/genCertKubeNodeMaster.json https://127.0.0.1:8200/v1/kube/issue/kube-node)
 
 echo "$kubeNodePems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node.pem
 echo "$kubeNodePems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-node-key.pem

@@ -7,6 +7,8 @@ echo $allkeys
 echo $root_token
 echo $key
 
+source k8sConfig/k8sConfig-vars.sh
+
 curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" --request POST -d "{ \"key\": $key }" https://127.0.0.1:8200/v1/sys/unseal
 curl --cacert /tmp/home/vault/ssl/ca-master-02.pem  -H "Content-Type: application/json" --request POST -d "{ \"key\": $key }" https://172.17.8.52:8200/v1/sys/unseal
 curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-Type: application/json" https://127.0.0.1:8200/v1/sys/health

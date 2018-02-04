@@ -71,9 +71,9 @@ data:
   # not using TLS for etcd.
   # This self-hosted install expects three files with the following names.  The values
   # should be base64 encoded strings of the entire contents of each file.
-  etcd-key: ${__ETCD_KEY__}
-  etcd-cert: ${__ETCD_CERT__}
-  etcd-ca: ${__ETCD_CA__}
+  etcd-key: ${ETCD_KEY}
+  etcd-cert: ${ETCD_CERT}
+  etcd-ca: ${ETCD_CA}
 
 
 ---

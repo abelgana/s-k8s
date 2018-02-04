@@ -24,7 +24,7 @@ spec:
     - proxy
     - --v=2
     - --kubeconfig=/etc/kubernetes/kube-proxy-kubeconfig.yaml
-    - --bind-address=${__NODE_IP__}
+    - --bind-address=${NODE_IP}
     - --cluster-cidr=10.233.64.0/18
     - --proxy-mode=iptables
     securityContext:

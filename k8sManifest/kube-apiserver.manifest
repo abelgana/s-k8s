@@ -23,7 +23,7 @@ spec:
     command:
     - /hyperkube
     - apiserver
-    - --advertise-address=${__NODE_IP__}
+    - --advertise-address=${NODE_IP}
     - --etcd-servers=https://127.0.0.1:2379
     - --etcd-quorum-read=true
     - --etcd-cafile=/etc/ssl/etcd/ssl/ca.pem

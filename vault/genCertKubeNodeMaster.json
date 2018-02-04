@@ -1,6 +1,6 @@
 {
-    "common_name": "system:node:{HOSTNAME}",
+    "common_name": "system:node:${HOSTNAME}",
     "format": "pem",
-    "ttl": "43800h",
+    "ttl": "26280h",
     "exclude_cn_from_sans": "true"
 }

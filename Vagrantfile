@@ -3,9 +3,9 @@
 
 update_channel = "stable"
 
-num_masters = 2
-num_etcds = 3
-num_workers = 2
+num_masters = 1
+num_etcds = 1
+num_workers = 1
 
 instance_master_prefix = "master"
 instance_worker_prefix = "worker"
@@ -42,8 +42,8 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      #config.vm.synced_folder ".", "/home/core/vagrant"
-      config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant"
+      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 
@@ -57,8 +57,8 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      #config.vm.synced_folder ".", "/home/core/vagrant" , type: "rsync"
-      config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant" , type: "rsync"
+      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 
@@ -72,25 +72,10 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      #config.vm.synced_folder ".", "/home/core/vagrant", type: "rsync"
-      config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant", type: "rsync"
+      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 
-  config.vm.define "bastion" do |host|
-    host.vm.hostname = "bastion"
-
-    ip = "172.17.8.244"
-    host.vm.network :private_network, ip: ip
-    # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
-    host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
-    host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-    #config.vm.synced_folder ".", "/home/core/vagrant", type: "rsync"
-    config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
-
-    #host.vm.provision :shell, :inline => "docker exec ansible mkdir /root/.ssh/"
-
-    #host.vm.provision "shell", path: "script.sh"
     config.vm.post_up_message = "Vagrant has finished"
-  end
 end

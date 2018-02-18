@@ -42,6 +42,15 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
+      host.vm.provision "docker" do |d|
+        d.pull_images "linkerd/linkerd-tcp:0.1.1"
+        d.pull_images "quay.io/calico/node:v3.0.1"
+        d.pull_images "quay.io/coreos/hyperkube:v1.9.2_coreos.0"
+        d.pull_images "quay.io/calico/kube-controllers:v2.0.0"
+        d.pull_images "quay.io/calico/cni:v2.0.0"
+        d.pull_images "gcr.io/google_containers/pause-amd64:3.1"
+        d.pull_images "vault:0.9.0"
+      end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
@@ -56,6 +65,10 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
+      host.vm.provision "docker" do |d|
+        d.pull_images "buoyantio/namerd:1.3.5"
+        d.pull_images "quay.io/coreos/etcd:v3.2.4"
+      end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
@@ -70,6 +83,13 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
+      host.vm.provision "docker" do |d|
+        d.pull_images "linkerd/linkerd-tcp:0.1.1"
+        d.pull_images "quay.io/calico/node:v3.0.1"
+        d.pull_images "quay.io/coreos/hyperkube:v1.9.2_coreos.0"
+        d.pull_images "quay.io/calico/cni:v2.0.0"
+        d.pull_images "gcr.io/google_containers/pause-amd64:3.1"
+      end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end

@@ -37,8 +37,8 @@ spec:
     - --v=2
     - --use-service-account-credentials=true
     - --allocate-node-cidrs=true
-    - --cluster-cidr=10.233.64.0/18
-    - --service-cluster-ip-range=10.233.0.0/18
+    - --cluster-cidr=${IPV4POOL_CIDR}
+    - --service-cluster-ip-range=${IPV4_CLUSTER_RANGE}
     - --node-cidr-mask-size=24
     livenessProbe:
       httpGet:

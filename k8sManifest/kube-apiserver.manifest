@@ -33,7 +33,7 @@ spec:
     - --bind-address=0.0.0.0
     - --endpoint-reconciler-type=lease
     - --admission-control=Initializers,NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota
-    - --service-cluster-ip-range=10.233.0.0/18
+    - --service-cluster-ip-range=${IPV4_CLUSTER_RANGE}
     - --service-node-port-range=30000-32767
     - --client-ca-file=/etc/kubernetes/ssl/ca.pem
     - --profiling=false

@@ -58,7 +58,7 @@ update-ca-certificates
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni
 
-cp kubelet/kubelet-worker.env /etc/kubernetes/kubelet.env
+envsubst < kubelet/kubelet-worker.env > /etc/kubernetes/kubelet.env
 cp kubelet/kubelet.service /etc/systemd/system/kubelet.service
 cp kubelet/kubelet-kubeconfig.yaml /etc/kubernetes/kubelet-kubeconfig.yaml
 envsubst < kubelet/kubelet-container.sh > /opt/bin/kubelet

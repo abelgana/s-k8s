@@ -13,3 +13,5 @@ ETCD_CERT=$(base64 /etc/ssl/etcd/ssl/etcd.pem | tr -d '\n')
 export ETCD_CERT
 ETCD_KEY=$(base64 /etc/ssl/etcd/ssl/etcd-key.pem | tr -d '\n')
 export ETCD_KEY
+IPV4POOL_CIDR="10.233.64.0/18"
+export IPV4POOL_CIDR

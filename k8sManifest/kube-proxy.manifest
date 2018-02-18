@@ -25,7 +25,7 @@ spec:
     - --v=2
     - --kubeconfig=/etc/kubernetes/kube-proxy-kubeconfig.yaml
     - --bind-address=${NODE_IP}
-    - --cluster-cidr=10.233.64.0/18
+    - --cluster-cidr=${IPV4POOL_CIDR}
     - --proxy-mode=iptables
     securityContext:
       privileged: true

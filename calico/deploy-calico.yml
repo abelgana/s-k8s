@@ -148,7 +148,7 @@ spec:
               value: "ACCEPT"
             # Configure the IP Pool from which Pod IPs will be chosen.
             - name: CALICO_IPV4POOL_CIDR
-              value: "10.233.64.0/18"
+              value: "${IPV4POOL_CIDR}"
             - name: CALICO_IPV4POOL_IPIP
               value: "Always"
             # Disable IPv6 on Kubernetes.

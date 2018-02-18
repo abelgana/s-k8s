@@ -42,7 +42,7 @@ chown kube:kube-cert /etc/ssl/etcd/ssl/*etcd*
 cp vault/genCertKubeAdmin.json /etc/vault/config/
 gen_cert genCertKubeAdmin kube-master admin
 
-cp vault/genCertKubeMaster.json /etc/vault/config/
+envsubst < vault/genCertKubeMaster.json > /etc/vault/config/genCertKubeMaster.json
 gen_cert genCertKubeMaster kube-master apiserver
 gen_cert genCertKubeMaster kube-master kube-scheduler
 gen_cert genCertKubeMaster kube-master kube-controller-manager
@@ -62,7 +62,7 @@ update-ca-certificates
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni
 
-cp kubelet/kubelet.env /etc/kubernetes/kubelet.env
+envsubst < kubelet/kubelet.env > /etc/kubernetes/kubelet.env
 cp kubelet/kubelet.service /etc/systemd/system/kubelet.service
 cp kubelet/kubelet-kubeconfig.yaml /etc/kubernetes/kubelet-kubeconfig.yaml
 systemctl daemon-reload

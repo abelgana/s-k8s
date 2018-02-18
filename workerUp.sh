@@ -47,13 +47,13 @@ kubeProxyPems=$(curl --cacert /tmp/home/vault/ssl/ca-master-01.pem  -H "Content-
 echo "$kubeProxyPems" | jq -r ."data.certificate" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy.pem
 echo "$kubeProxyPems" | jq -r ."data.private_key" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/kube-proxy-key.pem
 echo "$kubeProxyPems" | jq -r ."data.serial_number" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/sn-kube-proxy.pem
-echo "$kubeProxyPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/update-ca-certificatesca-kube-proxy.pem
+echo "$kubeProxyPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/kubernetes/ssl/ca-kube-proxy.pem
 chmod 0640 /etc/kubernetes/ssl/*kube-proxy*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-proxy*
 
 
 cp /etc/kubernetes/ssl/ca.pem /etc/ssl/certs/kube-ca.pem
-update-ca-certificates
+update-ca-certificate > /dev/null
 
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni

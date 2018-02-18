@@ -57,7 +57,7 @@ chmod 0640 /etc/kubernetes/ssl/*
 chown kube:kube-cert /etc/kubernetes/ssl/*
 
 cp /etc/kubernetes/ssl/ca.pem /etc/ssl/certs/kube-ca.pem
-update-ca-certificates
+update-ca-certificates > /dev/null
 
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni

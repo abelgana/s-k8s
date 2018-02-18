@@ -42,8 +42,7 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      config.vm.synced_folder ".", "/home/core/vagrant"
-      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 
@@ -57,8 +56,7 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      config.vm.synced_folder ".", "/home/core/vagrant" , type: "rsync"
-      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 
@@ -72,8 +70,7 @@ Vagrant.configure("2") do |config|
       # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      config.vm.synced_folder ".", "/home/core/vagrant", type: "rsync"
-      #config.vm.synced_folder ENV['HOME'], ENV['HOME'], id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end
   end
 

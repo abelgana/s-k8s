@@ -11,7 +11,7 @@ spec:
   dnsPolicy: ClusterFirst
   containers:
   - name: kube-apiserver
-    image: quay.io/coreos/hyperkube:v1.9.2_coreos.0
+    image: ${HYPERKUBE_IMAGE}
     imagePullPolicy: IfNotPresent
     resources:
       limits:

@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+source vault/vault-vars.sh
 mkdir -p /etc/vault/ssl
 mkdir -p /etc/vault/config
 mkdir -p /etc/vault/secrets
@@ -19,9 +21,7 @@ cp /tmp/home/vault/ssl/api-${HOSTNAME}.pem /etc/vault/ssl/aca.pem
 cp /tmp/home/etcd/ca.pem /etc/ssl/etcd/ssl/ca.pem
 )
 cp vault/vaultConfig.json /etc/vault/config/config.json
-export NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
-envsubst < vault/vaultConfig.json > /etc/vault/config/config.json 
+envsubst < vault/vaultConfig.json > /etc/vault/config/config.json
 cp vault/vault.service /etc/systemd/system/vault.service
 systemctl daemon-reload
-systemctl start vault.service
 systemctl start vault.service

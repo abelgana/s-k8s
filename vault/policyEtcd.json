@@ -1,0 +1,4 @@
+{
+  "policy": "{\"path\": {\"etcd/issue/etcd\": {\"policy\": \"write\"}, \"etcd/config/ca\": {\"policy\": \"write\"}, \"etcd/roles/etcd\": {\"policy\": \"read\"}}}"
+}
+

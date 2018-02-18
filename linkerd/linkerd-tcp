@@ -7,6 +7,6 @@
   -p 2379:2379 \
   -v /etc/linkerd-tcp/linkerd-tcp-config.yml:/config.yml:ro \
   --name=linkerd-tcp \
-  linkerd/linkerd-tcp:0.1.1 \
+  ${LINKERD_TCP_IMAGE} \
   /config.yml \
   "$@"

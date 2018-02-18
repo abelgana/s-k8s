@@ -1,7 +1,0 @@
-{
-    "common_name": "vault",
-    "alt_names": "master-01,master-02,vault-01,vault-02,localhost,vault.kube-system.svc.cluster.local,vault.kube-system.svc,vault.kube-system,vault",
-    "format": "pem",
-    "ip_sans": "127.0.0.1,172.17.8.52",
-    "ttl" : "43800h"
-}

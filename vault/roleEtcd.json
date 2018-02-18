@@ -1,4 +1,5 @@
 {
-  "policy": "{\"path\": {\"etcd/issue/etcd\": {\"policy\": \"write\"}, \"etcd/config/ca\": {\"policy\": \"write\"}, \"etcd/roles/etcd\": {\"policy\": \"read\"}}}"
+ "allow_any_name": "true",
+ "enforce_hostnames": "false",
+ "organization": "kube:etcd"
 }
-

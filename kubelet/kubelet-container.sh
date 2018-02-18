@@ -21,6 +21,6 @@
   -v /var/run:/var/run:rw \
   -v /etc/kubernetes:/etc/kubernetes:ro \
   -v /etc/os-release:/etc/os-release:ro \
-  quay.io/coreos/hyperkube:v1.9.2_coreos.0 \
+  ${HYPERKUBE_IMAGE} \
   ./hyperkube kubelet \
   "$@"

@@ -19,3 +19,7 @@ routers:
       - port: 6443
         dstName: /svc/apiserver
         connectTimeoutMs: 500
+
+      - port: 8200
+        dstName: /svc/vault
+        connectTimeoutMs: 500

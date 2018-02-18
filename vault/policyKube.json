@@ -1,0 +1,3 @@
+{
+  "policy": "{\"path\": {\"kube/issue/__POLICY__\": {\"policy\": \"write\"}, \"kube/roles/__POLICY__\": {\"policy\": \"read\"}}}"
+}

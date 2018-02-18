@@ -8,6 +8,6 @@
   -v /etc/namerd/namerd-config.yml:/io.buoyant/namerd/config.yml:ro \
   -v /etc/namerd/disco:/disco \
   --name=namerd \
-  buoyantio/namerd:1.3.5 \
+  ${NAMERD_IMAGE} \
   /io.buoyant/namerd/config.yml \
   "$@"

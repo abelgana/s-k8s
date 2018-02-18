@@ -51,9 +51,9 @@ echo "$kubeProxyPems" | jq -r ."data.issuing_ca" | sed 's/\\n/\n\r/g' >  /etc/ku
 chmod 0640 /etc/kubernetes/ssl/*kube-proxy*
 chown kube:kube-cert /etc/kubernetes/ssl/*kube-proxy*
 
-
+sysctl -w net.ipv4.ip_local_reserved_ports="30000-32767"
 cp /etc/kubernetes/ssl/ca.pem /etc/ssl/certs/kube-ca.pem
-update-ca-certificate > /dev/null
+update-ca-certificates > /dev/null
 
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni
@@ -68,3 +68,5 @@ envsubst < kubelet/kubelet-container.sh > /opt/bin/kubelet
 chmod +x /opt/bin/kubelet
 systemctl daemon-reload
 systemctl start kubelet
+
+cp /etc/kubernetes/kubelet-kubeconfig.yaml /etc/cni/net.d/calico-kubeconfig

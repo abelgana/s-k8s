@@ -58,6 +58,9 @@ update-ca-certificates
 mkdir -p /var/lib/cni
 chmod 0755 /var/lib/cni
 
+cp k8sConfig/kube-proxy-kubeconfig.yaml /etc/kubernetes/
+envsubst < k8sManifest/kube-proxy.manifest > /etc/kubernetes/manifests/kube-proxy.manifest
+
 envsubst < kubelet/kubelet-worker.env > /etc/kubernetes/kubelet.env
 cp kubelet/kubelet.service /etc/systemd/system/kubelet.service
 cp kubelet/kubelet-kubeconfig.yaml /etc/kubernetes/kubelet-kubeconfig.yaml

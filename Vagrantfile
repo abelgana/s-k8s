@@ -50,6 +50,7 @@ Vagrant.configure("2") do |config|
         d.pull_images "quay.io/calico/cni:v2.0.0"
         d.pull_images "gcr.io/google_containers/pause-amd64:3.1"
         d.pull_images "vault:0.9.0"
+        d.pull_images "coredns/coredns:1.0.4"
       end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     end

@@ -3,6 +3,8 @@ kind: ServiceAccount
 metadata:
   name: coredns
   namespace: kube-system
+  labels:
+    kubernetes.io/cluster-service: "true"
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
@@ -49,13 +51,14 @@ data:
     .:53 {
         errors
         health
-        kubernetes cluster.local {
+        kubernetes cluster.local 10.233.0.0/18 {
           pods insecure
           upstream /etc/resolv.conf
           fallthrough in-addr.arpa ip6.arpa
         }
         prometheus :9153
         proxy . /etc/resolv.conf
+        log
         cache 30
     }
 ---
@@ -66,9 +69,10 @@ metadata:
   namespace: kube-system
   labels:
     k8s-app: coredns
+    kubernetes.io/cluster-service: "true"
     kubernetes.io/name: "CoreDNS"
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -81,9 +85,13 @@ spec:
       labels:
         k8s-app: coredns
     spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: "true"
       serviceAccountName: coredns
       tolerations:
         - key: "CriticalAddonsOnly"
+          operator: "Exists"
+        - key: "node-role.kubernetes.io/master"
           operator: "Exists"
       containers:
       - name: coredns
@@ -137,4 +145,7 @@ spec:
     protocol: UDP
   - name: dns-tcp
     port: 53
+    protocol: TCP
+  - name: health
+    port: 8080
     protocol: TCP

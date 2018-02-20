@@ -98,5 +98,3 @@ cp /etc/kubernetes/admin.conf /root/.kube/config
 chmod 700 /root/.kube/config
 
 systemctl start kubelet
-
-cp /etc/kubernetes/kubelet-kubeconfig.yaml /etc/cni/net.d/calico-kubeconfig

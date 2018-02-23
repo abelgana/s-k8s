@@ -292,10 +292,15 @@ spec:
     spec:
       # The controllers must run in the host network namespace so that
       # it isn't governed by policy that would prevent it from working.
+      nodeSelector:
+        node-role.kubernetes.io/master: "true"
       hostNetwork: true
       serviceAccountName: calico-kube-controllers
       tolerations:
-        - operator: Exists
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
       containers:
         - name: calico-kube-controllers
           image: ${CALICO_KUBE_CONTROLLERs_IMAGE}

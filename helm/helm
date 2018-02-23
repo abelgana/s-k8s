@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/usr/bin/docker run --rm \
+  --net=host \
+  --name=helm \
+  -v /etc/ssl:/etc/ssl:ro \
+  -v /root/.helm:/root/.helm:rw \
+  -v /usr/share/ca-certificates:/usr/share/ca-certificates:ro \
+  lachlanevenson/k8s-helm:v2.7.2 \
+  "$@"

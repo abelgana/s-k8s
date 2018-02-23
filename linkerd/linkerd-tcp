@@ -5,6 +5,8 @@
   --net=host \
   -p 9989:9989 \
   -p 2379:2379 \
+  -p 8018:8018 \
+  -p 8019:8019 \
   -v /etc/linkerd-tcp/linkerd-tcp-config.yml:/config.yml:ro \
   --name=linkerd-tcp \
   ${LINKERD_TCP_IMAGE} \

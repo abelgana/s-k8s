@@ -9,10 +9,26 @@ namers:
 storage:
   kind: io.l5d.inMemory
   namespaces:
-    default: |
+    etcd: |
       /cluster   => /#/io.l5d.fs;
       /svc       => /cluster;
       /svc/etcd => /cluster/etcd;
+    apiserver: |
+      /cluster   => /#/io.l5d.fs;
+      /svc       => /cluster;
+      /svc/apiserver => /cluster/apiserver;
+    vault: |
+      /cluster   => /#/io.l5d.fs;
+      /svc       => /cluster;
+      /svc/vault => /cluster/vault;
+    dashboard: |
+      /cluster   => /#/io.l5d.fs;
+      /svc       => /cluster;
+      /svc/dashboard => /cluster/dashboard;
+    prometheus: |
+      /cluster   => /#/io.l5d.fs;
+      /svc       => /cluster;
+      /svc/prometheus => /cluster/prometheus;
 interfaces:
 - kind: io.l5d.thriftNameInterpreter
   ip: 0.0.0.0

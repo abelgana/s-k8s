@@ -4,11 +4,11 @@ admin:
   metricsIntervalSecs: 10
 
 routers:
-  - label: default
+  - label: etcd
     interpreter:
       kind: io.l5d.namerd.http
       baseUrl: http://${NAMERD_IP}:4180
-      namespace: default
+      namespace: etcd
       periodSecs: 20
 
     servers:
@@ -16,10 +16,26 @@ routers:
         dstName: /svc/etcd
         connectTimeoutMs: 500
 
+  - label: apiserver
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://${NAMERD_IP}:4180
+      namespace: apiserver
+      periodSecs: 20
+
+    servers:
       - port: 6443
         dstName: /svc/apiserver
         connectTimeoutMs: 500
 
+  - label: vault
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://${NAMERD_IP}:4180
+      namespace: vault
+      periodSecs: 20
+
+    servers:
       - port: 8200
         dstName: /svc/vault
         connectTimeoutMs: 500

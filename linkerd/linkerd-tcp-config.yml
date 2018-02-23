@@ -4,14 +4,40 @@ admin:
   metricsIntervalSecs: 10
 
 routers:
-  - label: default
+  - label: etcd
     interpreter:
       kind: io.l5d.namerd.http
       baseUrl: http://${NAMERD_IP}:4180
-      namespace: default
+      namespace: etcd
       periodSecs: 20
 
     servers:
       - port: 2379
         dstName: /svc/etcd
+        connectTimeoutMs: 500
+
+  - label: dashboard
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://${NAMERD_IP}:4180
+      namespace: dashboard
+      periodSecs: 20
+
+    servers:
+      - port: 8018
+        ip: 0.0.0.0
+        dstName: /svc/dashboard
+        connectTimeoutMs: 500
+
+  - label: prometheus
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://${NAMERD_IP}:4180
+      namespace: prometheus
+      periodSecs: 20
+
+    servers:
+      - port: 8019
+        ip: 0.0.0.0
+        dstName: /svc/prometheus
         connectTimeoutMs: 500

@@ -14,11 +14,8 @@ function linkerd::configure_linkerd-tcp() {
     if [ "$1" == 'master' ]
     then
         envsubst < linkerd/linkerd-tcp-config.yml > /etc/linkerd-tcp/linkerd-tcp-config.yml
-    elif [ "$1" == 'worker' ]
-    then
-        envsubst < linkerd/linkerd-tcp-worker-config.yml > /etc/linkerd-tcp/linkerd-tcp-config.yml
     else
-        echo "You need to specify if it's a worker or a master node"
+        envsubst < linkerd/linkerd-tcp-worker-config.yml > /etc/linkerd-tcp/linkerd-tcp-config.yml
     fi
 }
 

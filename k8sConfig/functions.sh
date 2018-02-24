@@ -107,7 +107,10 @@ function kube::configure_kubelet() {
     echo "Configuring kubelet"
     if [ "$1" == 'master' ]
     then
-        envsubst < kubelet/kubelet.env > /etc/kubernetes/kubelet.env
+        envsubst < kubelet/kubelet-master.env > /etc/kubernetes/kubelet.env
+    elif [ "$1" == 'ingress' ]
+    then
+        envsubst < kubelet/kubelet-ingress.env > /etc/kubernetes/kubelet.env
     else
         envsubst < kubelet/kubelet-worker.env > /etc/kubernetes/kubelet.env
     fi

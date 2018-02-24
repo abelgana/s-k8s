@@ -24,4 +24,6 @@ function linkerd::start_linkerd-tcp() {
     systemctl enable linkerd-tcp.service > /dev/null 2>&1
     systemctl daemon-reload
     systemctl start linkerd-tcp.service
+    curl --silent --retry-connrefused --retry 5 http://127.0.0.1:9989/health > /dev/null
+    echo "linkerd is started"
 }

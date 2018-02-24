@@ -3,8 +3,8 @@
 
 update_channel = "stable"
 
-num_masters = 1
 num_etcds = 1
+num_masters = 1
 num_workers = 1
 num_ingress = 1
 
@@ -110,7 +110,7 @@ Vagrant.configure("2") do |config|
     config.vm.define vm_name do |host|
       host.vm.hostname = vm_name
 
-      ip = "172.17.8.#{i+150}"
+      ip = "172.17.8.#{i+200}"
       host.vm.network :private_network, ip: ip
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
       host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"

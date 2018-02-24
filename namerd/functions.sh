@@ -21,4 +21,6 @@ function namerd::start_namerd() {
     systemctl enable namerd.service > /dev/null 2>&1
     systemctl daemon-reload
     systemctl start namerd.service
+    curl --silent --retry-connrefused --retry 5 http://127.0.0.1:9991/health > /dev/null
+    echo "namerd is started"
 }

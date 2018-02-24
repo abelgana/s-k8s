@@ -1,7 +1,6 @@
 #!/bin/bash
 
 tar -xf certs/etcd.tar -C /tmp
-
 NODE_IP=$(/usr/bin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
 export NODE_IP
 ETCD_INITIAL_CLUSTER='etcd-01=https://172.17.8.101:2380'

@@ -41,3 +41,15 @@ routers:
         ip: 0.0.0.0
         dstName: /svc/prometheus
         connectTimeoutMs: 500
+
+  - label: vault
+    interpreter:
+      kind: io.l5d.namerd.http
+      baseUrl: http://${NAMERD_IP}:4180
+      namespace: vault
+      periodSecs: 20
+
+    servers:
+      - port: 8200
+        dstName: /svc/vault
+        connectTimeoutMs: 500

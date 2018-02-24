@@ -31,6 +31,26 @@ Vagrant.configure("2") do |config|
     config.vbguest.auto_update = false
   end
 
+  (1..num_etcds).each do |i|
+    vm_name = "%s-%02d" % [instance_etcd_prefix, i]
+    config.vm.define vm_name do |host|
+      host.vm.hostname = vm_name
+
+      ip = "172.17.8.#{i+100}"
+      host.vm.network :private_network, ip: ip
+      # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
+      host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
+      host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
+      host.vm.provision "docker" do |d|
+        d.pull_images "quay.io/coreos/etcd:v3.2.4"
+        d.pull_images "buoyantio/namerd:1.3.5"
+        d.pull_images "vault:0.9.0"
+      end
+      config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      host.vm.provision :shell, :inline => "cd /home/core/vagrant; sudo /home/core/vagrant/etcdUp.sh"
+    end
+  end
+
     # Set up each box
   (1..num_masters).each do |i|
     vm_name = "%s-%02d" % [instance_master_prefix, i]
@@ -49,28 +69,11 @@ Vagrant.configure("2") do |config|
         d.pull_images "quay.io/calico/kube-controllers:v2.0.0"
         d.pull_images "quay.io/calico/cni:v2.0.0"
         d.pull_images "gcr.io/google_containers/pause-amd64:3.1"
-        d.pull_images "vault:0.9.0"
         d.pull_images "coredns/coredns:1.0.4"
+        d.pull_images "lachlanevenson/k8s-helm:v2.7.2"
       end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
-    end
-  end
-
-  (1..num_etcds).each do |i|
-    vm_name = "%s-%02d" % [instance_etcd_prefix, i]
-    config.vm.define vm_name do |host|
-      host.vm.hostname = vm_name
-
-      ip = "172.17.8.#{i+100}"
-      host.vm.network :private_network, ip: ip
-      # Workaround VirtualBox issue where eth1 has 2 IP Addresses at startup
-      host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr flush dev eth1"
-      host.vm.provision :shell, :inline => "sudo /usr/bin/ip addr add #{ip}/24 dev eth1"
-      host.vm.provision "docker" do |d|
-        d.pull_images "buoyantio/namerd:1.3.5"
-        d.pull_images "quay.io/coreos/etcd:v3.2.4"
-      end
-      config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      host.vm.provision :shell, :inline => "cd /home/core/vagrant; sudo /home/core/vagrant/masterUp.sh"
     end
   end
 
@@ -92,6 +95,7 @@ Vagrant.configure("2") do |config|
         d.pull_images "gcr.io/google_containers/pause-amd64:3.1"
       end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      host.vm.provision :shell, :inline => "cd /home/core/vagrant; sudo /home/core/vagrant/workerUp.sh"
     end
   end
 

@@ -6,7 +6,7 @@ update_channel = "stable"
 num_etcds = 1
 num_masters = 1
 num_workers = 1
-num_ingress = 1
+num_ingress = 0
 
 etcd_image = "quay.io/coreos/etcd:v3.2.4"
 namerd_image = "buoyantio/namerd:1.3.5"
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
     v.cpus = 4
-    v.memory = 2156
+    v.memory = 4156
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 

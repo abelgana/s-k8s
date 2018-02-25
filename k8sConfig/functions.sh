@@ -184,9 +184,9 @@ function kube::configure_ingress() {
 
 function kube::install_dashboard() {
     echo "Installing dashboard"
-    cp dashboard/expose_dashboard.yaml /etc/kubernetes/manifests
+    cp kuberntes_apps/expose_apps.yaml /etc/kubernetes/manifests
     helm install stable/kubernetes-dashboard --name kube-dashboard --set rbac.create=yes --namespace kube-system
-    kubectl apply -f /etc/kubernetes/manifests/expose_dashboard.yaml
+    kubectl apply -f /etc/kubernetes/manifests/expose_apps.yaml
     echo "Dashboard can be accessed through http://<ingressIP>/ui/"
 }
 function kube::install_prometheus_operator() {

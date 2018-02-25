@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
     v.cpus = 4
-    v.memory = 3072
+    v.memory = 2048
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
@@ -122,7 +122,7 @@ Vagrant.configure("2") do |config|
         d.pull_images "%s" % calico_kube_controller_image
       end
       config.vm.synced_folder ".", "/home/core/vagrant", id: "home", :nfs => true, :mount_options => ['nolock,vers=3,udp']
-      host.vm.provision :shell, :inline => "cd /home/core/vagrant; sudo /home/core/vagrant/workerUp.sh"
+      host.vm.provision :shell, :inline => "cd /home/core/vagrant; sudo /home/core/vagrant/ingressUp.sh"
     end
   end
 

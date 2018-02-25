@@ -2,7 +2,7 @@
 ## Ref: https://github.com/kubernetes/ingress/blob/master/controllers/nginx/configuration.md
 ##
 controller:
-  name: ingress_controller
+  name: ingresscontroller
   image:
     repository: quay.io/kubernetes-ingress-controller/nginx-ingress-controller
     tag: "0.10.2"
@@ -24,7 +24,7 @@ controller:
 
   ## Use host ports 80 and 443
   daemonset:
-    useHostPort: false
+    useHostPort: yes
 
   ## Required only if defaultBackend.enabled = false
   ## Must be <namespace>/<service_name>
@@ -88,7 +88,7 @@ controller:
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##
   tolerations:
-    - key: "node-role.kubernetes.io/ingress=true"
+    - key: "node-role.kubernetes.io/ingress"
       operator: "Exists"
 
   ## Node labels for controller pod assignment
@@ -258,7 +258,7 @@ defaultBackend:
 
 ## Enable RBAC as per https://github.com/kubernetes/ingress/tree/master/examples/rbac/nginx and https://github.com/kubernetes/ingress/issues/266
 rbac:
-  create: false
+  create: true
   serviceAccountName: default
 
 ## If controller.stats.enabled = true, Prometheus metrics will be exported

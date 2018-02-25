@@ -176,3 +176,23 @@ function kube::configure_helm() {
     /opt/bin/kubectl apply -f /etc/kubernetes/manifests/helm-sa.yml
     /opt/bin/helm init --service-account tiller --upgrade
 }
+
+function kube::configure_ingress() {
+    cp nginx-ingress/values.yml /root/.helm/nginx_ingress_values.yaml
+    helm install stable/nginx-ingress --name nginx-ingress -f /root/.helm/nginx_ingress_values.yaml --namespace nginx-ingress
+}
+
+function kube::install_dashboard() {
+    echo "Installing dashboard"
+    cp dashboard/expose_dashboard.yaml /etc/kubernetes/manifests
+    helm install stable/kubernetes-dashboard --name kube-dashboard --set rbac.create=yes --namespace kube-system
+    kubectl apply -f /etc/kubernetes/manifests/expose_dashboard.yaml
+    echo "Dashboard can be accessed through http://<ingressIP>/ui/"
+}
+function kube::install_prometheus_operator() {
+    echo "Installing prometheus operator"
+    helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+    helm install coreos/prometheus-operator --name prometheus-operator --set global.rbacEnable=true --namespace monitoring
+    helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring
+    echo "Need to work on exposing prometheus through the ingress"
+}

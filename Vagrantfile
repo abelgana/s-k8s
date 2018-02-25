@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
     v.cpus = 4
-    v.memory = 2048
+    v.memory = 2156
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 

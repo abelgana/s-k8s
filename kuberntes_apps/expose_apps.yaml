@@ -15,38 +15,3 @@ spec:
         backend:
           serviceName: kube-dashboard-kubernetes-dashboard
           servicePort: 80
-
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: kubernetes-grafana
-  namespace: monitoring
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /grafana
-        backend:
-          serviceName: kube-prometheus-grafana
-          servicePort: 80
-
-#---
-#apiVersion: extensions/v1beta1
-#kind: Ingress
-#metadata:
-#  name: kubernetes-metrics
-#  namespace: monitoring
-#  annotations:
-#    nginx.ingress.kubernetes.io/rewrite-target: /
-#spec:
-#  rules:
-#  - http:
-#      paths:
-#      - path: /metrics
-#        backend:
-#          serviceName: kube-prometheus-exporter-kube-state
-#          servicePort: 80

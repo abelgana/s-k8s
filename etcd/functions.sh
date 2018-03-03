@@ -6,7 +6,7 @@ function etcd::create_needed_folders() {
     mkdir /etc/ssl/etcd/ssl -p
 }
 
-function etcd::copy_sll_certificates(){
+function etcd::copy_ssl_certificates(){
     echo "Copying required ssl certificates for etcd"
     printf %s "${etcd_ca:?}" > /etc/ssl/etcd/ssl/ca.pem
     printf %s "${etcd_cert:?}" > /etc/ssl/etcd/ssl/member-etcd.pem

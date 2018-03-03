@@ -32,7 +32,7 @@ function vault::configure_vault() {
 
 function vault:start_vault() {
     echo "Starting vault"
-    systemctl enable namerd.service > /dev/null 2>&1
+    systemctl enable vault.service > /dev/null 2>&1
     systemctl daemon-reload
     systemctl start vault.service
     vault::curl https://127.0.0.1:8200/v1/sys/health > /dev/null

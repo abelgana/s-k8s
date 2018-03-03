@@ -145,6 +145,7 @@ function kube::start_kubelet() {
     then
         curl --silent --retry-connrefused --connect-timeout 5 --retry 10 --retry-delay 0 --retry-max-time 40 http://127.0.0.1:8080/healthz
     fi
+    echo "Cluster is now healthy"
 }
 
 function kube::configure_network_plugin() {

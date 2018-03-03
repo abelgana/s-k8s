@@ -12,7 +12,7 @@ source vault/vault-vars.sh
 source vault/functions.sh
 
 etcd::create_needed_folders
-etcd::copy_sll_certificates
+etcd::copy_ssl_certificates
 etcd::configure_etcd
 etcd::start_etcd
 

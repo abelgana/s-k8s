@@ -1,5 +1,4 @@
 .vagrant/*
 *.tar
 ssls
-certs/*
 .hiden

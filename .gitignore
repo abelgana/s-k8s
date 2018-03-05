@@ -1,2 +1,7 @@
 .vagrant/*
 .hidden
+certs/allkeys
+certs/ca-key.pem
+certs/ca.pem
+certs/key
+certs/root_token
